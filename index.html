@@ -1,22 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relivon™ | Joelheira Elétrica</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relivon™ | Joelheira / Suporte Térmico</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <section class="hero">
-    <h1>Relivon™</h1>
-    <p>Alívio térmico premium para suas articulações</p>
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <span class="kicker">Relivon™ • Calor + Suporte</span>
+          <h1 class="h1">A dor não se resolve sozinha.</h1>
+          <p class="sub">Terapia de calor direcionada para quem trabalha duro e se recusa a diminuir o ritmo.</p>
 
-    <a href="https://www.conforzen.shop/products/relivon-joelheira-eletrica" class="btn">
-      Comprar Agora
-    </a>
+          <a class="btn" href="#comprar">QUERO ALÍVIO AGORA</a>
+
+          <div class="mini">Checkout Seguro • Envio Rápido • Garantia de 7 Dias</div>
+
+          <div class="badge-row">
+            <div class="badge"><strong>Calor Profundo</strong> terapêutico</div>
+            <div class="badge"><strong>Compressão</strong> estável</div>
+            <div class="badge"><strong>Ajuste</strong> ergonômico</div>
+          </div>
+        </div>
+
+        <div class="hero-right card">
+          <div class="slider" id="productSlider" aria-label="Imagens do produto" role="region">
+            <div class="slides">
+              <div class="slide"><img src="IMAGEM_1.jpg" alt="Suporte térmico - ângulo 1" loading="eager"></div>
+              <div class="slide"><img src="IMAGEM_2.jpg" alt="Suporte térmico - ângulo 2" loading="lazy"></div>
+              <div class="slide"><img src="IMAGEM_3.jpg" alt="Suporte térmico - detalhe" loading="lazy"></div>
+              <div class="slide"><img src="IMAGEM_4.jpg" alt="Suporte térmico - em uso" loading="lazy"></div>
+            </div>
+            <button class="nav prev" type="button" aria-label="Imagem anterior">‹</button>
+            <button class="nav next" type="button" aria-label="Próxima imagem">›</button>
+            <div class="dots" aria-label="Navegação do slider"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROBLEMA -->
+  <section class="section reveal">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="box">
+          <h2 class="h2">Ainda ignorando essa dor?</h2>
+          <div class="lines">
+Longas horas.
+Treinos pesados.
+Ficar em pé o dia todo.
+
+Seu corpo está dando sinais.
+A maioria só percebe quando piora.
+          </div>
+        </div>
+
+        <div class="box">
+          <h2 class="h2">O que isso está te custando</h2>
+          <p class="p">
+            A dor drena sua energia, reduz seu desempenho e vai limitando sua liberdade.
+            Isso não é só conforto. É controle.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="section reveal">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="box">
+          <span class="kicker">A solução</span>
+          <h2 class="h2">Calor + Suporte = Alívio de verdade</h2>
+          <ul class="bullets">
+            <li>✔ Calor terapêutico profundo</li>
+            <li>✔ Suporte com compressão estável</li>
+            <li>✔ Ajuste ergonômico e regulável</li>
+            <li>✔ Use em casa ou após o treino</li>
+          </ul>
+          <div class="lines" style="margin-top:8px">
+Movimente-se melhor.
+Recupere mais rápido.
+Mantenha o controle.
+          </div>
+        </div>
+
+        <div class="box" id="comprar">
+          <span class="kicker">Pronto para usar</span>
+          <h2 class="h2">Assuma o controle hoje</h2>
+          <p class="p">Adicione à sua rotina e sinta a diferença nas primeiras utilizações.</p>
+          <div style="height:8px"></div>
+
+          <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
+
+          <div class="mini">Garantia de 7 Dias • Estoque limitado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="section reveal">
+    <div class="wrap">
+      <div class="box">
+        <div class="rating">
+          <div>
+            <div class="big">⭐⭐⭐⭐⭐ 4,8/5</div>
+            <div class="small">2.000+ clientes satisfeitos</div>
+          </div>
+        </div>
+
+        <div class="quotes">
+          <div class="quote">“Uso depois do trabalho e sinto diferença na hora.”</div>
+          <div class="quote">“Muito melhor do que depender de remédios.”</div>
+          <div class="quote">“Confortável e realmente forte.”</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section reveal">
+    <div class="wrap">
+      <div class="box">
+        <h2 class="h2">Perguntas Frequentes</h2>
+        <div class="stack">
+          <details>
+            <summary>Funciona mesmo?</summary>
+            <p>
+              Sim. A combinação de calor controlado e compressão ajuda a relaxar a região e dar suporte ao movimento.
+              Muitos clientes relatam alívio já nas primeiras utilizações.
+            </p>
+          </details>
+
+          <details>
+            <summary>É confortável?</summary>
+            <p>Com certeza. Foi projetado para dar suporte firme sem limitar o movimento natural.</p>
+          </details>
+
+          <details>
+            <summary>É seguro?</summary>
+            <p>Sim. O aquecimento é controlado e feito para uso diário seguro seguindo as instruções.</p>
+          </details>
+
+          <details>
+            <summary>Substitui tratamento médico?</summary>
+            <p>Não. É uma solução prática para desconfortos do dia a dia, não substitui avaliação médica.</p>
+          </details>
+
+          <details>
+            <summary>E se eu não gostar?</summary>
+            <p>Você tem garantia de 7 dias. Sem risco.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGÊNCIA -->
+  <section class="section reveal">
+    <div class="wrap">
+      <div class="urgency">
+        <div>
+          <b>Alta procura.</b><br>
+          <span style="color:rgba(255,255,255,.75)">Estoque limitado disponível.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FECHAMENTO -->
+  <section class="section reveal">
+    <div class="wrap">
+      <div class="box close">
+        <h2 class="h2">Você pode continuar ignorando a dor.<br>Ou assumir o controle hoje.</h2>
+        <p class="p" style="margin-top:8px">
+          Seu corpo está pedindo suporte. Dê a estabilidade e o calor que ele precisa — e volte a performar.
+        </p>
+        <div style="height:10px"></div>
+
+        <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
+
+        <div class="mini">Checkout Seguro • Envio Rápido • Garantia de 7 Dias</div>
+      </div>
+    </div>
   </section>
 
   <script src="script.js"></script>
 </body>
-</html>
+  </html>
