@@ -461,3 +461,18 @@ details p{margin:8px 0 0; color:var(--muted); line-height:1.6}
   /* dá espaço no fim da página pra não cobrir conteúdo */
   body{padding-bottom:86px;}
 }
+/* ✅ Performance: renderiza só quando chega na tela */
+.section, .card, .box{
+  content-visibility:auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
+/* ✅ Performance + acessibilidade */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+
+/* ✅ Menos peso no mobile (shadow mais leve) */
+@media (max-width: 900px){
+  .card{ box-shadow: 0 10px 24px rgba(0,0,0,.28); }
+}
