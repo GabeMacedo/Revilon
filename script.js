@@ -1,4 +1,3 @@
-console.log("✅ script.js carregou!");
 (() => {
   // =========================
   // SCROLL REVEAL
