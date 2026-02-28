@@ -69,9 +69,9 @@
             </div>
           </div>
 
-          <button class="pnav prev">‹</button>
-          <button class="pnav next">›</button>
-          <div class="pdots"></div>
+          <button class="pnav prev" type="button" aria-label="Imagem anterior">‹</button>
+          <button class="pnav next" type="button" aria-label="Próxima imagem">›</button>
+          <div class="pdots" aria-label="Paginação do slider"></div>
         </div>
 
         <div class="buy" id="comprar">
@@ -99,12 +99,11 @@
         <div class="box">
           <h2 class="h2">Ainda ignorando essa dor?</h2>
           <p class="p lines">
-Longas horas.
-Treinos pesados.
-Ficar em pé o dia todo.
-
-Seu corpo está dando sinais.
-A maioria só percebe quando piora.
+            Longas horas.<br>
+            Treinos pesados.<br>
+            Ficar em pé o dia todo.<br><br>
+            Seu corpo está dando sinais.<br>
+            A maioria só percebe quando piora.
           </p>
         </div>
 
@@ -139,45 +138,14 @@ A maioria só percebe quando piora.
     </div>
   </section>
 
-  <!-- SELOS PREMIUM -->
+  <!-- SELOS PREMIUM (PNG) -->
   <section class="section reveal">
     <div class="container">
-      <!-- TRUST SEALS (IMAGENS PNG) -->
-<div class="trust-seals reveal" aria-label="Selos de confiança">
 
-  <div class="seal">
-    <img class="seal-img" src="file_00000000f190720ea90c6d2cb5e7e2e3.png" alt="Selo Pagamento Seguro">
-    <div class="seal-text">
-      <strong>Pagamento Seguro</strong>
-      <span>Checkout 100% protegido</span>
-    </div>
-  </div>
+      <div class="trust-seals" aria-label="Selos de confiança">
 
-  <div class="seal">
-    <img class="seal-img" src="file_00000000aff871f58df03f50290a2740.png" alt="Selo Envio Rápido">
-    <div class="seal-text">
-      <strong>Envio Rápido</strong>
-      <span>Entrega para todo Brasil</span>
-    </div>
-  </div>
-
-  <div class="seal">
-    <img class="seal-img" src="file_0000000076a0720ea2bb34ca0d56b812.png" alt="Selo Suporte via WhatsApp">
-    <div class="seal-text">
-      <strong>Suporte Real</strong>
-      <span>Atendimento via WhatsApp</span>
-    </div>
-  </div>
-
-  <div class="seal">
-    <img class="seal-img" src="file_00000000179071f593d39bbde8cd37e8.png" alt="Selo Garantia 7 Dias">
-    <div class="seal-text">
-      <strong>Garantia 7 Dias</strong>
-      <span>Risco zero ou seu dinheiro de volta</span>
-    </div>
-  </div>
-
-</div>
+        <div class="seal">
+          <img class="seal-img" src="file_00000000f190720ea90c6d2cb5e7e2e3.png" alt="Selo Pagamento Seguro">
           <div class="seal-text">
             <strong>Pagamento Seguro</strong>
             <span>Checkout 100% protegido</span>
@@ -185,12 +153,7 @@ A maioria só percebe quando piora.
         </div>
 
         <div class="seal">
-          <div class="seal-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <rect x="1" y="3" width="15" height="13"/>
-              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-            </svg>
-          </div>
+          <img class="seal-img" src="file_00000000aff871f58df03f50290a2740.png" alt="Selo Envio Rápido">
           <div class="seal-text">
             <strong>Envio Rápido</strong>
             <span>Entrega para todo Brasil</span>
@@ -198,11 +161,7 @@ A maioria só percebe quando piora.
         </div>
 
         <div class="seal">
-          <div class="seal-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
-            </svg>
-          </div>
+          <img class="seal-img" src="file_0000000076a0720ea2bb34ca0d56b812.png" alt="Selo Suporte via WhatsApp">
           <div class="seal-text">
             <strong>Suporte Real</strong>
             <span>Atendimento via WhatsApp</span>
@@ -210,12 +169,7 @@ A maioria só percebe quando piora.
         </div>
 
         <div class="seal">
-          <div class="seal-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
-          </div>
+          <img class="seal-img" src="file_00000000179071f593d39bbde8cd37e8.png" alt="Selo Garantia 7 Dias">
           <div class="seal-text">
             <strong>Garantia 7 Dias</strong>
             <span>Risco zero ou seu dinheiro de volta</span>
@@ -223,6 +177,7 @@ A maioria só percebe quando piora.
         </div>
 
       </div>
+
     </div>
   </section>
 
