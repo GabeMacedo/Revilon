@@ -274,23 +274,12 @@ details p{margin:8px 0 0; color:var(--muted); line-height:1.6}
   .h1{font-size:34px}
   .grid{grid-template-columns:1fr}
   .banner img{max-height:260px}
-}
-/* ============================= */
-/* BANNER COM TEXTO (GRINGO)     */
-/* ============================= */
 
-.banner{
-  position:relative;
-  overflow:hidden;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.banner img{
-  width:100%;
-  height: clamp(220px, 42vw, 420px);
-  object-fit:cover;
-  display:block;
-  filter: contrast(1.08) saturate(1.05);
+banner{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .banner-overlay{
