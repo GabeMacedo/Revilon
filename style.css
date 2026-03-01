@@ -4,14 +4,12 @@
   --stroke: rgba(255,255,255,.10);
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.70);
-  --muted2: rgba(255,255,255,.55);
 
   --green:#2E8B57;
   --green2:#1c6e42;
 
   --shadow: 0 18px 50px rgba(0,0,0,.45);
   --radius: 18px;
-  --radius2: 22px;
   --max: 980px;
 }
 
@@ -19,454 +17,225 @@
 html,body{ margin:0; padding:0 }
 
 body{
-  font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:Poppins, sans-serif;
   background:
     radial-gradient(900px 600px at 15% 0%, rgba(15,42,71,.30), transparent 60%),
     radial-gradient(900px 600px at 85% 10%, rgba(46,139,87,.18), transparent 55%),
     var(--bg);
   color:var(--text);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
-  padding-bottom:92px; /* espaço para CTA fixo */
+  padding-bottom:90px;
 }
 
-a{ color:inherit; text-decoration:none }
+a{ text-decoration:none; color:inherit }
 .container{ max-width:var(--max); margin:0 auto; padding:0 18px }
-.section{ padding:22px 0 }
+.section{ padding:26px 0 }
 
-/* ------------------------- */
 /* BANNER */
-/* ------------------------- */
-.banner{
-  position:relative;
-  width:100%;
-  overflow:hidden;
-  background:#0b0d10;
-}
 .banner img{
   width:100%;
-  height:auto;
   display:block;
-  object-fit:cover;
 }
 
-/* mini bar fina e elegante */
 .banner-mini{
-  margin:12px auto 0;
+  margin:12px auto;
   max-width:var(--max);
-  padding:10px 14px;
+  padding:10px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.72);
-  font-size:12px;
-  letter-spacing:.2px;
   text-align:center;
+  font-size:12px;
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
 }
 
-/* ------------------------- */
 /* HERO */
-/* ------------------------- */
-.hero{ padding:22px 0 8px }
 .kicker{
-  display:inline-flex;
-  padding:8px 12px;
+  display:inline-block;
+  padding:8px 14px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.75);
   font-size:12px;
-  letter-spacing:.3px;
+  background: rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
 }
+
 .h1{
-  margin:14px 0 10px;
-  font-size:42px;
-  line-height:1.05;
-  letter-spacing:-.7px;
+  font-size:40px;
+  margin:14px 0;
 }
+
 .sub{
-  margin:0 0 16px;
-  color: var(--muted);
   font-size:15px;
-  line-height:1.5;
+  color:var(--muted);
 }
 
-.mini{
-  margin-top:12px;
-  font-size:12px;
-  color: rgba(255,255,255,.62);
-}
-
-/* badges */
-.badges{
-  margin-top:14px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.badge{
-  display:flex;
-  gap:8px;
-  align-items:center;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.80);
-  font-size:13px;
-}
-.badge strong{ color:rgba(255,255,255,.95) }
-
-/* ------------------------- */
-/* BOTÕES */
-/* ------------------------- */
+/* BOTÃO */
 .btn{
   display:inline-flex;
-  align-items:center;
   justify-content:center;
-  min-height:52px;
-  padding:0 18px;
+  align-items:center;
+  padding:14px 20px;
   border-radius:16px;
-  background: linear-gradient(180deg, var(--green), var(--green2));
-  color:#06130c;
   font-weight:800;
-  letter-spacing:.4px;
-  box-shadow: 0 18px 42px rgba(46,139,87,.22);
-  border:1px solid rgba(255,255,255,.10);
-  transition: transform .12s ease, filter .12s ease;
+  background:linear-gradient(180deg,var(--green),var(--green2));
+  color:#06130c;
+  margin-top:14px;
+  box-shadow:0 18px 42px rgba(46,139,87,.25);
 }
-.btn:active{ transform: scale(.98) }
+
 .btn--pulse{
-  animation: pulse 2.2s ease-in-out infinite;
+  animation:pulse 2s infinite;
 }
+
 @keyframes pulse{
-  0%,100%{ filter:saturate(1) }
-  50%{ filter:saturate(1.15) }
+  0%,100%{ transform:scale(1) }
+  50%{ transform:scale(1.03) }
 }
 
-/* ------------------------- */
-/* CARD / BOX */
-/* ------------------------- */
+/* CARD */
 .card{
-  border-radius: var(--radius2);
-  border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.04);
-  box-shadow: var(--shadow);
-  padding:18px;
-  overflow:hidden;
-}
-.card.center{ text-align:center }
-
-.h2{
-  margin:0;
-  font-size:22px;
-  letter-spacing:-.3px;
-}
-.h3{
-  margin:0 0 8px;
-  font-size:20px;
-  letter-spacing:-.2px;
-}
-.p{
-  margin:8px 0 0;
-  color: var(--muted);
-  font-size:14px;
-  line-height:1.55;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:var(--shadow);
 }
 
-/* grid benefícios */
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:1fr;
   gap:14px;
 }
-.box{
-  border-radius: var(--radius2);
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.035);
-  box-shadow: 0 16px 44px rgba(0,0,0,.35);
-  padding:16px;
+
+@media (min-width:760px){
+  .grid{ grid-template-columns:1fr 1fr }
+  body{ padding-bottom:0 }
 }
 
-/* bullets */
-.bullets{
-  margin:10px 0 0;
-  padding:0;
-  list-style:none;
-}
-.bullets li{
-  padding:8px 0;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  color: rgba(255,255,255,.82);
-}
-.bullets li:last-child{ border-bottom:none }
-
-/* ------------------------- */
-/* SLIDER (IGUAL AO ANTIGO: SEM FUNDO BRANCO) */
-/* ------------------------- */
+/* SLIDER */
 .product-slider{
-  position:relative;
-  border-radius: 20px;
+  border-radius:20px;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(0,0,0,.25);  /* ✅ aqui é o segredo */
-  margin:12px 0 16px;
+  background:white;
+  margin:14px 0;
 }
 
 .product-slides{
   display:flex;
-  transition: transform .35s ease;
-  will-change: transform;
 }
+
 .product-slide{
   min-width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: transparent;       /* ✅ sem branco */
 }
+
 .product-slide img{
   width:100%;
-  height:auto;
   display:block;
-  object-fit:contain;
-  background: transparent;       /* ✅ sem branco */
 }
 
-/* setas */
-.pnav{
-  position:absolute;
-  top:50%;
-  transform: translateY(-50%);
-  width:44px;
-  height:44px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.35);
-  color: rgba(255,255,255,.92);
-  font-size:26px;
-  line-height:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  backdrop-filter: blur(6px);
-}
-.pnav.prev{ left:10px }
-.pnav.next{ right:10px }
-
-/* bolinhas */
-.pdots{
-  position:absolute;
-  left:50%;
-  bottom:10px;
-  transform: translateX(-50%);
-  display:flex;
-  gap:8px;
-}
-.pdots button{
-  width:8px;
-  height:8px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.18);
-  cursor:pointer;
-}
-.pdots button.is-active{
-  width:18px;
-  background: rgba(46,139,87,.95);
-  border-color: rgba(46,139,87,.95);
-}
-
-/* ------------------------- */
-/* BUY bloco */
-/* ------------------------- */
-.buy{
-  margin-top:10px;
-  padding-top:6px;
-}
-.guarantee-text{
-  margin-top:12px;
-  padding:12px 14px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  color: rgba(255,255,255,.78);
-  font-size:13px;
-  line-height:1.45;
-}
-
-/* ------------------------- */
-/* PROVA SOCIAL */
-/* ------------------------- */
-.stars{ font-weight:800 }
-
-.quotes{
-  display:grid;
-  gap:10px;
-}
-.quote{
-  padding:12px 14px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.03);
-  color: rgba(255,255,255,.78);
-}
-
-/* ------------------------- */
-/* SELOS (4) */
-/* - Mobile: 2x2 */
-/* - Desktop: 4 em linha */
-/* ------------------------- */
+/* SELOS */
 .trust-seals-mini{
-  display:grid;
-  grid-template-columns: 1fr 1fr; /* ✅ 2x2 no mobile */
-  gap:18px;
-  justify-items:center;
-  align-items:center;
-  padding:10px 0;
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  flex-wrap:wrap;
 }
 
 .trust-seals-mini img{
-  width:120px;   /* 🔥 maior no mobile */
+  width:120px;
   height:auto;
-  object-fit:contain;
-  display:block;
-  filter: drop-shadow(0 18px 30px rgba(0,0,0,.55));
-  opacity:1;
-  transition: transform .2s ease;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.55));
+  transition:transform .2s ease;
 }
 
 .trust-seals-mini img:hover{
-  transform: scale(1.08);
+  transform:scale(1.08);
 }
 
-/* ------------------------- */
-/* CTA STICKY */
-/* ------------------------- */
-.sticky-cta{
-  position:fixed;
-  left:0; right:0;
-  bottom:0;
-  z-index:999;
-  padding:12px 16px;
-  background: linear-gradient(180deg, rgba(15,17,19,0), rgba(15,17,19,.85));
-  backdrop-filter: blur(8px);
-}
-.sticky-cta .btn{
-  width:100%;
-  border-radius:18px;
-}
 /* =========================
-   FAQ em BALÕES (cada pergunta = 1 balão)
-   - Abre com animação
-   - Pergunta maior / resposta menor
+   FAQ BALÕES PREMIUM
 ========================= */
 
-.faq-baloes .p{ margin-bottom: 14px; }
-
 .faq-baloes-list{
-  display: grid;
-  gap: 12px;
-  margin-top: 14px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:18px;
 }
 
-/* desktop pode virar 2 colunas, se quiser */
-@media (min-width: 760px){
-  .faq-baloes-list{
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-}
-
-/* o BALÃO */
 .faq-balao{
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 14px 35px rgba(0,0,0,.30);
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  background: rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:22px;
+  transition: all .25s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  overflow:hidden;
 }
 
-/* remove setinha padrão do navegador */
 .faq-balao summary::-webkit-details-marker{ display:none; }
 .faq-balao summary{ list-style:none; }
 
-/* área clicável */
 .faq-balao summary{
-  cursor: pointer;
-  padding: 16px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  cursor:pointer;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-/* PERGUNTA maior */
 .faq-pergunta{
-  font-weight: 800;
-  font-size: 15px;
-  line-height: 1.25;
-  color: rgba(255,255,255,.95);
+  font-size:16px;
+  font-weight:800;
+  color:white;
 }
 
-/* botão + */
 .faq-icone{
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.25);
-  color: rgba(255,255,255,.85);
-  flex: 0 0 auto;
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:700;
+  border:1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.35);
+  color:white;
+  transition: all .25s ease;
 }
 
-/* quando abre: balão cresce POUCO + muda borda levemente */
 .faq-balao[open]{
-  transform: scale(1.02);
-  background: rgba(255,255,255,.05);
-  border-color: rgba(46,139,87,.45);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(46,139,87,0.5);
+  transform: scale(1.015);
 }
 
-/* + vira X (bem claro) */
 .faq-balao[open] .faq-icone{
   transform: rotate(45deg);
-  border-color: rgba(46,139,87,.45);
-}
-
-/* animação da resposta: “abrindo” */
-.faq-resposta{
-  padding: 0 14px 14px;
-  color: rgba(255,255,255,.72);
-  font-size: 13px;        /* resposta menor */
-  line-height: 1.55;
-
-  /* animação suave sem JS */
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows .22s ease;
-}
-
-.faq-resposta::before{
-  content:"";
-  display:block;
-  height: 1px;
-  background: rgba(255,255,255,.08);
-  margin: 0 0 12px;
-}
-
-.faq-balao[open] .faq-resposta{
-  grid-template-rows: 1fr;
+  border-color: rgba(46,139,87,0.5);
 }
 
 .faq-resposta{
-  overflow: hidden;
+  padding:0 18px 18px;
+  font-size:13px;
+  color:rgba(255,255,255,.75);
+  line-height:1.6;
+  animation:fade .25s ease;
 }
 
-.faq-balao[open] .faq-resposta{
-  overflow: visible;
+@keyframes fade{
+  from{ opacity:0; transform:translateY(-4px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* CTA FIXO */
+.sticky-cta{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:14px;
+  background:linear-gradient(180deg,rgba(15,17,19,0),rgba(15,17,19,.95));
+}
+
+.sticky-cta .btn{
+  width:100%;
 }
