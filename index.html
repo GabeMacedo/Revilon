@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- AJUSTE 3: Marca consistente (título) -->
   <title>Relivon™ | Produto Oficial</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- SEO básico -->
+  <meta name="description" content="Relivon™ — Calor terapêutico + compressão firme para mais conforto e estabilidade na sua rotina. Garantia blindada de 30 dias." />
+  <meta name="theme-color" content="#0f1113" />
 
-  <!-- Seu CSS externo -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Preload do banner (troque se mudar o nome do arquivo) -->
+  <link rel="preload" as="image" href="Design sem nome_20260227_105101_0000.jpg" />
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- AJUSTE 4: CTA FIXO (mantido no HTML, mas pronto para ser controlado por JS externo) -->
-  <!-- Dica: no seu JS externo, faça aparecer só depois de rolar (ex: scrollY > 300) -->
+  <!-- CTA FIXO -->
   <div class="sticky-cta" id="stickyCta" data-show-after="320" aria-hidden="true">
     <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
   </div>
 
   <!-- BANNER -->
-  <section class="banner">
-    <img src="Design sem nome_20260227_105101_0000.jpg" alt="Banner do Produto">
+  <section class="banner" aria-label="Banner principal">
+    <img
+      src="Design sem nome_20260227_105101_0000.jpg"
+      alt="Relivon™ — Calor terapêutico e compressão"
+      loading="eager"
+    />
   </section>
 
-  <div class="banner-mini">
+  <div class="banner-mini" role="note">
     Checkout Seguro • Envio Rápido • Suporte via WhatsApp
   </div>
 
@@ -36,8 +47,7 @@
     <div class="container">
       <span class="kicker">Calor Terapêutico + Compressão</span>
 
-      <!-- AJUSTE 1: Frase de emoção forte -->
-      <h1 class="h1">Seu corpo aguenta.<br>Mas até quando?</h1>
+      <h1 class="h1">Seu corpo aguenta.<br />Mas até quando?</h1>
 
       <p class="sub">
         Calor terapêutico + compressão firme para quem trabalha duro,
@@ -46,13 +56,13 @@
 
       <a class="btn" href="#comprar">QUERO ALÍVIO AGORA</a>
 
-      <div class="banner-mini" style="margin-top:12px;">
+      <div class="banner-mini" style="margin-top:12px;" role="note">
         ✔️ Envio em até 24h • ✔️ Rastreio por WhatsApp • ✔️ Atendimento no Brasil
       </div>
     </div>
   </header>
 
-  <!-- AJUSTE 2: Urgência + Garantia (nova seção, sem mexer no resto) -->
+  <!-- GARANTIA -->
   <section class="section" id="garantia">
     <div class="container">
       <div class="card">
@@ -60,7 +70,7 @@
 
         <p class="p">
           Teste por <strong>30 dias completos</strong>. Se não sentir melhora no conforto, estabilidade e suporte,
-          devolvemos <strong>100% do seu dinheiro</strong>.<br>
+          devolvemos <strong>100% do seu dinheiro</strong>.<br />
           <strong>Você assume o produto. Nós assumimos o risco.</strong>
         </p>
 
@@ -74,32 +84,42 @@
   </section>
 
   <!-- PRODUTO -->
+ <!-- PRODUTO -->
+<section class="section" id="produto">
+  <div class="container">
+    <div class="card">
 
-<div class="product-slider">
-  <div class="product-slide">
-    <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="Relivon - Foto 1">
-  </div>
+      <h2 class="h2">Conheça o Produto</h2>
+      <p class="p">Veja por diferentes ângulos antes de comprar.</p>
 
-  <div class="product-slide">
-    <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="Relivon - Foto 2">
-  </div>
+      <div class="product-slider">
 
-  <div class="product-slide">
-    <img src="file_000000006960720eb88ca3cc1f4579fd.png" alt="Relivon - Foto 3">
-  </div>
+        <div class="product-slide">
+          <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="Relivon - Foto 1">
+        </div>
 
-  <div class="product-slide">
-    <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="Relivon - Foto 4">
-  </div>
+        <div class="product-slide">
+          <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="Relivon - Foto 2">
+        </div>
 
-  <div class="product-slide">
-    <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="Relivon - Foto 5">
-  </div>
+        <div class="product-slide">
+          <img src="file_000000006960720eb88ca3cc1f4579fd.png" alt="Relivon - Foto 3">
+        </div>
 
-  <div class="product-slide">
-    <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="Relivon - Foto 6">
-  </div>
-</div>
+        <div class="product-slide">
+          <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="Relivon - Foto 4">
+        </div>
+
+        <div class="product-slide">
+          <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="Relivon - Foto 5">
+        </div>
+
+        <div class="product-slide">
+          <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="Relivon - Foto 6">
+        </div>
+
+      </div>
+
       <!-- COMPRAR -->
       <div class="buy" id="comprar">
         <h3 class="h3">Assuma o controle hoje</h3>
@@ -107,7 +127,9 @@
           Integre o produto à sua rotina e sinta mais conforto
           durante suas atividades diárias.
         </p>
+
         <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
+
         <div class="mini" style="margin-top:12px;">
           Garantia 30 dias • Checkout Seguro • Suporte via WhatsApp
         </div>
@@ -120,14 +142,16 @@
         <!-- COMPRAR -->
         <div class="buy" id="comprar">
           <h3 class="h3">Assuma o controle hoje</h3>
+
           <p class="p">
             Integre o produto à sua rotina e sinta mais conforto
             durante suas atividades diárias.
           </p>
 
-          <!-- Mantive o botão, mas apontando para #comprar é redundante.
-               Se você tiver link de checkout, troque o href aqui. -->
-          <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
+          <!-- Troque o href para seu checkout (Cartpanda / Shopify / etc.) -->
+          <a class="btn" href="#comprar" aria-label="Ir para o checkout e garantir o produto">
+            GARANTIR O MEU AGORA
+          </a>
 
           <div class="mini" style="margin-top:12px;">
             Garantia 30 dias • Checkout Seguro • Suporte via WhatsApp
@@ -139,7 +163,7 @@
   </section>
 
   <!-- BENEFÍCIOS -->
-  <section class="section">
+  <section class="section" aria-label="Benefícios e diferenciais">
     <div class="container">
       <div class="grid">
 
@@ -167,13 +191,13 @@
   </section>
 
   <!-- PROVA SOCIAL -->
-  <section class="section">
+  <section class="section" aria-label="Prova social">
     <div class="container">
       <div class="card center">
-        <div class="stars">⭐⭐⭐⭐⭐ 4,8/5</div>
+        <div class="stars" aria-label="Avaliação média">⭐⭐⭐⭐⭐ 4,8/5</div>
         <div class="mini">Mais de 2.000 clientes satisfeitos</div>
 
-        <div class="quotes">
+        <div class="quotes" aria-label="Depoimentos">
           <div class="quote">“Senti melhora já nos primeiros usos.”</div>
           <div class="quote">“Muito confortável e fácil de usar.”</div>
           <div class="quote">“Ótima opção para rotina intensa.”</div>
@@ -182,8 +206,8 @@
     </div>
   </section>
 
-  <!-- FAQ BALÕES -->
-  <section class="section faq-baloes" id="faq">
+  <!-- FAQ -->
+  <section class="section faq-baloes" id="faq" aria-label="Perguntas frequentes">
     <div class="container">
       <div class="card">
         <h2 class="h2">Perguntas Frequentes</h2>
@@ -223,11 +247,11 @@
   </section>
 
   <!-- FECHAMENTO -->
-  <section class="section">
+  <section class="section" aria-label="Chamada final">
     <div class="container">
       <div class="card center">
         <h2 class="h2">
-          Você pode continuar ignorando o desconforto.<br>
+          Você pode continuar ignorando o desconforto.<br />
           Ou assumir o controle hoje.
         </h2>
 
@@ -246,7 +270,6 @@
 
       <div class="footer-grid">
 
-        <!-- AJUSTE 3: Marca consistente (rodapé) -->
         <div class="footer-col">
           <h3 class="footer-title">Relivon™</h3>
           <p class="footer-text">
@@ -255,7 +278,6 @@
           </p>
         </div>
 
-        <!-- Links -->
         <div class="footer-col">
           <ul>
             <li><a href="privacidade.html">Política de Privacidade</a></li>
@@ -265,7 +287,6 @@
           </ul>
         </div>
 
-        <!-- Contato -->
         <div class="footer-col">
           <ul>
             <li>Email: <a href="mailto:Atendimento.relivon@gmail.com">Atendimento.relivon@gmail.com</a></li>
@@ -274,14 +295,14 @@
           </ul>
         </div>
 
-      </div><!-- /footer-grid -->
+      </div>
 
       <div class="footer-bottom">
         © 2026 Relivon™. Todos os direitos reservados.
       </div>
 
-    </div><!-- /container -->
+    </div>
   </footer>
-<script src="script.js" defer></script>
+
 </body>
 </html>
