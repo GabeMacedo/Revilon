@@ -1,1 +1,77 @@
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Política de Privacidade | Suporte Térmico</title>
+  <meta name="description" content="Política de Privacidade do Suporte Térmico." />
+  <style>
+    :root{--bg:#0b0f14;--card:#0f1720;--text:#e9eef6;--muted:#a8b3c4;--border:rgba(255,255,255,.08);--accent:#2E8B57}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:radial-gradient(900px 500px at 70% -20%, rgba(46,139,87,.22), transparent 60%), var(--bg);color:var(--text)}
+    a{color:inherit} .wrap{max-width:900px;margin:0 auto;padding:22px 16px 40px}
+    .top{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);padding:10px 12px;border-radius:12px;text-decoration:none}
+    .card{border:1px solid var(--border);background:rgba(255,255,255,.03);border-radius:18px;padding:18px}
+    h1{margin:10px 0 8px;font-size:26px} h2{margin:18px 0 8px;font-size:18px}
+    p,li{color:var(--muted);line-height:1.7} ul{margin:8px 0 0 18px}
+    .meta{color:var(--muted);font-size:14px}
+    .foot{margin-top:14px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="btn" href="index.html">← Voltar para a loja</a>
+      <span class="badge">Suporte Térmico</span>
+    </div>
+
+    <div class="card">
+      <h1>Política de Privacidade</h1>
+      <div class="meta">Última atualização: <span id="date"></span></div>
+
+      <p>Esta Política explica como tratamos informações quando você navega em nosso site e realiza uma compra.</p>
+
+      <h2>1. Dados que podemos coletar</h2>
+      <ul>
+        <li><b>Dados de contato</b>: nome, e-mail e telefone (quando você informa).</li>
+        <li><b>Dados de entrega</b>: endereço para envio do pedido.</li>
+        <li><b>Dados de pagamento</b>: são processados pelo provedor de pagamento. Não armazenamos dados completos do seu cartão.</li>
+        <li><b>Dados de navegação</b>: cookies/tecnologias similares para melhorar a experiência e medir desempenho.</li>
+      </ul>
+
+      <h2>2. Como usamos seus dados</h2>
+      <ul>
+        <li>Processar pedidos, pagamentos e entregas.</li>
+        <li>Atendimento ao cliente e suporte.</li>
+        <li>Prevenção de fraudes e segurança.</li>
+        <li>Melhorar o site e a experiência.</li>
+      </ul>
+
+      <h2>3. Compartilhamento</h2>
+      <p>Podemos compartilhar dados com parceiros essenciais (pagamento, entrega, suporte e ferramentas de análise), sempre apenas o necessário para operar o serviço.</p>
+
+      <h2>4. Cookies</h2>
+      <p>Cookies ajudam a lembrar preferências e medir o uso do site. Você pode desativá-los no navegador, mas algumas funções podem não funcionar corretamente.</p>
+
+      <h2>5. Seus direitos</h2>
+      <p>Você pode solicitar acesso, correção ou exclusão de dados quando aplicável. Para isso, entre em contato pelos canais do rodapé.</p>
+
+      <h2>6. Segurança</h2>
+      <p>Adotamos medidas técnicas e organizacionais para proteger informações, mas nenhum sistema é 100% inviolável.</p>
+
+      <h2>7. Contato</h2>
+      <p>Se tiver dúvidas, fale conosco pelos canais informados no site.</p>
+
+      <div class="foot">© <span id="year"></span> Suporte Térmico. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    const now = new Date();
+    document.getElementById("year").textContent = now.getFullYear();
+    document.getElementById("date").textContent = now.toLocaleDateString("pt-BR");
+  </script>
+</body>
+</html>
