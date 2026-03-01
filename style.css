@@ -1,202 +1,435 @@
-/* =========================
-   RESET
-========================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+:root{
+  --bg:#0f1113;
+  --panel: rgba(255,255,255,.06);
+  --stroke: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+
+  --green:#2E8B57;
+  --green2:#1c6e42;
+
+  --shadow: 0 18px 50px rgba(0,0,0,.45);
+  --radius: 18px;
+  --radius2: 22px;
+  --max: 980px;
 }
+
+*{ box-sizing:border-box }
+html,body{ margin:0; padding:0 }
 
 body{
-  font-family:'Poppins', sans-serif;
-  background:#0f1113;
-  color:#fff;
-  line-height:1.5;
-  padding-bottom:90px;
+  font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(900px 600px at 15% 0%, rgba(15,42,71,.30), transparent 60%),
+    radial-gradient(900px 600px at 85% 10%, rgba(46,139,87,.18), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  padding-bottom:92px; /* espaço para CTA fixo */
 }
 
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:0 20px;
-}
+a{ color:inherit; text-decoration:none }
+.container{ max-width:var(--max); margin:0 auto; padding:0 18px }
+.section{ padding:26px 0 }
 
-.section{
-  padding:30px 0;
+/* ------------------------- */
+/* BANNER */
+/* ------------------------- */
+.banner{
+  width:100%;
+  overflow:hidden;
+  background:#0b0d10;
 }
-
-/* =========================
-   BANNER
-========================= */
 .banner img{
   width:100%;
+  height:auto;
   display:block;
+  object-fit:cover;
 }
 
-/* =========================
-   BOTÕES
-========================= */
-.btn{
-  display:inline-block;
-  padding:14px 22px;
-  border-radius:14px;
-  background:linear-gradient(180deg,#2E8B57,#1c6e42);
-  color:#04140c;
-  font-weight:800;
-  text-decoration:none;
-  text-align:center;
-}
-
-.sticky-cta{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#0f1113;
-  padding:14px;
-  text-align:center;
-  box-shadow:0 -10px 30px rgba(0,0,0,.5);
-}
-
-.sticky-cta .btn{
-  width:100%;
-}
-
-/* =========================
-   CARD
-========================= */
-.card{
-  background:#15181c;
-  padding:22px;
-  border-radius:22px;
+/* mini bar */
+.banner-mini{
+  margin:12px auto 0;
+  max-width:var(--max);
+  padding:10px 14px;
+  border-radius:999px;
   border:1px solid rgba(255,255,255,.08);
-}
-
-/* =========================
-   SLIDER
-========================= */
-.product-slider{
-  overflow:hidden;
-  border-radius:20px;
-  margin-top:15px;
-}
-
-.product-slide{
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.72);
+  font-size:12px;
+  letter-spacing:.2px;
   text-align:center;
 }
 
+/* ------------------------- */
+/* HERO */
+/* ------------------------- */
+.hero{ padding:22px 0 8px }
+.kicker{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.75);
+  font-size:12px;
+  letter-spacing:.3px;
+}
+.h1{
+  margin:14px 0 10px;
+  font-size:42px;
+  line-height:1.05;
+  letter-spacing:-.7px;
+}
+.sub{
+  margin:0 0 16px;
+  color: var(--muted);
+  font-size:15px;
+  line-height:1.5;
+  max-width: 640px;
+}
+.mini{
+  margin-top:12px;
+  font-size:12px;
+  color: rgba(255,255,255,.62);
+}
+
+/* badges */
+.badges{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.badge{
+  display:flex;
+  align-items:center;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.80);
+  font-size:13px;
+}
+.badge strong{ color:rgba(255,255,255,.95) }
+
+/* ------------------------- */
+/* BOTÕES */
+/* ------------------------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:0 18px;
+  border-radius:16px;
+  background: linear-gradient(180deg, var(--green), var(--green2));
+  color:#06130c;
+  font-weight:800;
+  letter-spacing:.4px;
+  box-shadow: 0 18px 42px rgba(46,139,87,.22);
+  border:1px solid rgba(255,255,255,.10);
+  transition: transform .12s ease, filter .12s ease;
+}
+.btn:active{ transform: scale(.98) }
+.btn--pulse{ animation: pulse 2.2s ease-in-out infinite; }
+@keyframes pulse{
+  0%,100%{ filter:saturate(1) }
+  50%{ filter:saturate(1.15) }
+}
+
+/* ------------------------- */
+/* CARD / BOX */
+/* ------------------------- */
+.card{
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  box-shadow: var(--shadow);
+  padding:18px;
+  overflow:hidden;
+}
+.card.center{ text-align:center }
+
+.h2{
+  margin:0;
+  font-size:22px;
+  letter-spacing:-.3px;
+}
+.h3{
+  margin:0 0 8px;
+  font-size:20px;
+  letter-spacing:-.2px;
+}
+.p{
+  margin:8px 0 0;
+  color: var(--muted);
+  font-size:14px;
+  line-height:1.55;
+}
+
+/* grid benefícios */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.box{
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
+  box-shadow: 0 16px 44px rgba(0,0,0,.35);
+  padding:16px;
+}
+
+/* bullets */
+.bullets{
+  margin:10px 0 0;
+  padding:0;
+  list-style:none;
+}
+.bullets li{
+  padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  color: rgba(255,255,255,.82);
+}
+.bullets li:last-child{ border-bottom:none }
+
+/* ------------------------- */
+/* SLIDER (SEM FUNDO BRANCO) */
+/* ------------------------- */
+.product-slider{
+  position:relative;
+  border-radius: 20px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.25);
+  margin:12px 0 16px;
+}
+
+.product-slides{
+  display:flex;
+  transition: transform .35s ease;
+  will-change: transform;
+}
+.product-slide{
+  min-width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: transparent;
+}
 .product-slide img{
   width:100%;
   height:auto;
+  display:block;
   object-fit:contain;
-  background:transparent;
+  background: transparent;
 }
 
-/* =========================
-   FAQ BALÕES
-========================= */
+/* setas */
+.pnav{
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.92);
+  font-size:26px;
+  line-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  backdrop-filter: blur(6px);
+}
+.pnav.prev{ left:10px }
+.pnav.next{ right:10px }
+
+/* dots */
+.pdots{
+  position:absolute;
+  left:50%;
+  bottom:10px;
+  transform: translateX(-50%);
+  display:flex;
+  gap:8px;
+}
+.pdots button{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.18);
+  cursor:pointer;
+}
+.pdots button.is-active{
+  width:18px;
+  background: rgba(46,139,87,.95);
+  border-color: rgba(46,139,87,.95);
+}
+
+/* BUY bloco */
+.buy{ margin-top:10px; padding-top:6px; }
+.guarantee-text{
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.78);
+  font-size:13px;
+  line-height:1.45;
+}
+
+/* PROVA SOCIAL */
+.stars{ font-weight:800 }
+.quotes{ display:grid; gap:10px; margin-top:12px; }
+.quote{
+  padding:12px 14px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.78);
+}
+
+/* -------------------------
+   FAQ BALÕES (abre com animação)
+------------------------- */
 .faq-baloes-list{
   display:flex;
   flex-direction:column;
-  gap:16px;
+  gap:14px;
+  margin-top:18px;
 }
 
 .faq-balao{
-  background:#15181c;
+  background: rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
   border-radius:22px;
-  border:1px solid rgba(255,255,255,.08);
+  transition: all .25s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   overflow:hidden;
-  transition:.3s;
 }
 
+.faq-balao summary::-webkit-details-marker{ display:none; }
+.faq-balao summary{ list-style:none; }
+
 .faq-balao summary{
-  list-style:none;
   cursor:pointer;
   padding:18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:12px;
 }
 
 .faq-pergunta{
-  font-weight:800;
   font-size:16px;
+  font-weight:800;
+  color: rgba(255,255,255,.95);
+  line-height:1.25;
+}
+
+.faq-icone{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:800;
+  border:1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.35);
+  color:white;
+  transition: all .25s ease;
+  flex: 0 0 auto;
+}
+
+.faq-balao[open]{
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(46,139,87,0.55);
+  transform: scale(1.015);
+}
+
+.faq-balao[open] .faq-icone{
+  transform: rotate(45deg);
+  border-color: rgba(46,139,87,0.55);
 }
 
 .faq-resposta{
   padding:0 18px 18px;
   font-size:13px;
-  color:#ccc;
+  color:rgba(255,255,255,.75);
+  line-height:1.6;
+  animation:faqFade .25s ease;
 }
 
-.faq-balao[open]{
-  background:#1c2026;
-  transform:scale(1.02);
+@keyframes faqFade{
+  from{ opacity:0; transform:translateY(-4px); }
+  to{ opacity:1; transform:translateY(0); }
 }
 
-/* =========================
-   SELOS EM UMA LINHA
-========================= */
-.seals-row{
-  padding-top:10px;
-  padding-bottom:40px;
-}
+/* ------------------------- */
+/* SELOS FINAIS (1 LINHA) */
+/* ------------------------- */
+.seals-final{ padding-top:8px; padding-bottom:34px; }
 
-.seals-row__wrap{
+/* força 1 linha */
+.trust-seals-mini.one-line{
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
-  gap:20px;
-  flex-wrap:nowrap; /* NUNCA QUEBRA */
+  gap:28px;
+  flex-wrap:nowrap;
+  overflow:hidden;
 }
 
-.seals-row__item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex:1;
-}
-
-.seals-row__item img{
-  width:45px;
-  height:45px;
+/* tamanho dos selos */
+.trust-seals-mini.one-line img{
+  width:110px;
+  height:auto;
   object-fit:contain;
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,.55));
+  transition: transform .2s ease;
+  opacity: 1;
+}
+.trust-seals-mini.one-line img:hover{ transform: scale(1.06); }
+
+/* no celular reduz para caber 4 em uma linha */
+@media (max-width: 560px){
+  .trust-seals-mini.one-line{ gap:12px; }
+  .trust-seals-mini.one-line img{ width:72px; }
 }
 
-.seals-row__text{
-  display:flex;
-  flex-direction:column;
+/* ------------------------- */
+/* CTA STICKY */
+/* ------------------------- */
+.sticky-cta{
+  position:fixed;
+  left:0; right:0;
+  bottom:0;
+  z-index:999;
+  padding:12px 16px;
+  background: linear-gradient(180deg, rgba(15,17,19,0), rgba(15,17,19,.85));
+  backdrop-filter: blur(8px);
+}
+.sticky-cta .btn{
+  width:100%;
+  border-radius:18px;
 }
 
-.seals-row__text strong{
-  font-size:12px;
-}
-
-.seals-row__text span{
-  font-size:10px;
-  color:#aaa;
-}
-
-/* =========================
-   RESPONSIVO
-========================= */
-@media(max-width:768px){
-
-  .seals-row__wrap{
-    gap:12px;
-  }
-
-  .seals-row__item img{
-    width:36px;
-    height:36px;
-  }
-
-  .seals-row__text strong{
-    font-size:11px;
-  }
-
-  .seals-row__text span{
-    font-size:9px;
-  }
-
+/* ------------------------- */
+/* RESPONSIVO GERAL */
+/* ------------------------- */
+@media (min-width: 760px){
+  .grid{ grid-template-columns: 1fr 1fr }
+  .h1{ font-size:52px }
+  .sticky-cta{ display:none }
+  body{ padding-bottom:0 }
 }
