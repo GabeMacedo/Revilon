@@ -224,18 +224,18 @@ a{ text-decoration:none; color:inherit }
   color:var(--muted);
 }
 
-/* ---------------- SELOS PREMIUM (3) ---------------- */
+/* ---------------- 4 SELOS PREMIUM ---------------- */
 .trust-seals-mini{
-  display:flex;
-  justify-content:center;
+  display:grid;
+  grid-template-columns: 1fr 1fr;   /* 2x2 no mobile */
+  gap:25px;
+  justify-items:center;
   align-items:center;
-  gap:28px;
   padding:40px 0;
-  flex-wrap:wrap;
 }
 
 .trust-seals-mini img{
-  width:110px;
+  width:95px;
   height:auto;
   object-fit:contain;
   filter:drop-shadow(0 18px 35px rgba(0,0,0,.65));
@@ -244,6 +244,24 @@ a{ text-decoration:none; color:inherit }
 
 .trust-seals-mini img:hover{
   transform:scale(1.08);
+}
+
+/* Desktop: 4 em linha */
+@media (min-width:760px){
+  body{ padding-bottom:0 }
+  .grid{ grid-template-columns:1fr 1fr }
+  .h1{ font-size:56px }
+  .sticky-cta{ display:none }
+
+  .trust-seals-mini{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+  }
+
+  .trust-seals-mini img{
+    width:120px;
+  }
 }
 
 /* ---------------- CTA FIXO ---------------- */
@@ -261,13 +279,4 @@ a{ text-decoration:none; color:inherit }
 .sticky-cta .btn{
   width:100%;
   border-radius:20px;
-}
-
-/* ---------------- RESPONSIVO ---------------- */
-@media (min-width:760px){
-  body{ padding-bottom:0 }
-  .grid{ grid-template-columns:1fr 1fr }
-  .h1{ font-size:56px }
-  .sticky-cta{ display:none }
-  .trust-seals-mini img{ width:130px }
 }
