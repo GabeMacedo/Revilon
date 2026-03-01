@@ -48,7 +48,7 @@ a{ color:inherit; text-decoration:none }
   object-fit:cover;
 }
 
-/* mini bar */
+/* mini bar fina */
 .banner-mini{
   margin:12px auto 0;
   max-width:var(--max);
@@ -65,7 +65,6 @@ a{ color:inherit; text-decoration:none }
 /* ------------------------- */
 /* HERO */
 /* ------------------------- */
-.hero{ padding:22px 0 8px }
 .kicker{
   display:inline-flex;
   padding:8px 12px;
@@ -87,32 +86,14 @@ a{ color:inherit; text-decoration:none }
   color: var(--muted);
   font-size:15px;
   line-height:1.5;
-  max-width: 640px;
+  max-width: 680px;
 }
+
 .mini{
   margin-top:12px;
   font-size:12px;
   color: rgba(255,255,255,.62);
 }
-
-/* badges */
-.badges{
-  margin-top:14px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.badge{
-  display:flex;
-  align-items:center;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.80);
-  font-size:13px;
-}
-.badge strong{ color:rgba(255,255,255,.95) }
 
 /* ------------------------- */
 /* BOTÕES */
@@ -133,14 +114,16 @@ a{ color:inherit; text-decoration:none }
   transition: transform .12s ease, filter .12s ease;
 }
 .btn:active{ transform: scale(.98) }
-.btn--pulse{ animation: pulse 2.2s ease-in-out infinite; }
+.btn--pulse{
+  animation: pulse 2.2s ease-in-out infinite;
+}
 @keyframes pulse{
   0%,100%{ filter:saturate(1) }
   50%{ filter:saturate(1.15) }
 }
 
 /* ------------------------- */
-/* CARD / BOX */
+/* CARD / TIPOGRAFIA */
 /* ------------------------- */
 .card{
   border-radius: var(--radius2);
@@ -169,21 +152,14 @@ a{ color:inherit; text-decoration:none }
   line-height:1.55;
 }
 
-/* grid benefícios */
+/* ------------------------- */
+/* GRID BENEFÍCIOS */
+/* ------------------------- */
 .grid{
   display:grid;
   grid-template-columns:1fr;
   gap:14px;
 }
-.box{
-  border-radius: var(--radius2);
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.035);
-  box-shadow: 0 16px 44px rgba(0,0,0,.35);
-  padding:16px;
-}
-
-/* bullets */
 .bullets{
   margin:10px 0 0;
   padding:0;
@@ -250,7 +226,7 @@ a{ color:inherit; text-decoration:none }
 .pnav.prev{ left:10px }
 .pnav.next{ right:10px }
 
-/* dots */
+/* bolinhas (se seu JS cria botões aqui) */
 .pdots{
   position:absolute;
   left:50%;
@@ -286,7 +262,9 @@ a{ color:inherit; text-decoration:none }
   line-height:1.45;
 }
 
+/* ------------------------- */
 /* PROVA SOCIAL */
+/* ------------------------- */
 .stars{ font-weight:800 }
 .quotes{ display:grid; gap:10px; margin-top:12px; }
 .quote{
@@ -309,11 +287,11 @@ a{ color:inherit; text-decoration:none }
 
 .faq-balao{
   background: rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
   border-radius:22px;
+  border:1px solid rgba(255,255,255,0.08);
+  overflow:hidden;
   transition: all .25s ease;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  overflow:hidden;
 }
 
 .faq-balao summary::-webkit-details-marker{ display:none; }
@@ -335,6 +313,7 @@ a{ color:inherit; text-decoration:none }
   line-height:1.25;
 }
 
+/* Se você estiver usando o ícone + no HTML */
 .faq-icone{
   width:34px;
   height:34px;
@@ -356,7 +335,6 @@ a{ color:inherit; text-decoration:none }
   border-color: rgba(46,139,87,0.55);
   transform: scale(1.015);
 }
-
 .faq-balao[open] .faq-icone{
   transform: rotate(45deg);
   border-color: rgba(46,139,87,0.55);
@@ -369,42 +347,9 @@ a{ color:inherit; text-decoration:none }
   line-height:1.6;
   animation:faqFade .25s ease;
 }
-
 @keyframes faqFade{
   from{ opacity:0; transform:translateY(-4px); }
   to{ opacity:1; transform:translateY(0); }
-}
-
-/* ------------------------- */
-/* SELOS FINAIS (1 LINHA) */
-/* ------------------------- */
-.seals-final{ padding-top:8px; padding-bottom:34px; }
-
-/* força 1 linha */
-.trust-seals-mini.one-line{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:28px;
-  flex-wrap:nowrap;
-  overflow:hidden;
-}
-
-/* tamanho dos selos */
-.trust-seals-mini.one-line img{
-  width:110px;
-  height:auto;
-  object-fit:contain;
-  filter: drop-shadow(0 18px 30px rgba(0,0,0,.55));
-  transition: transform .2s ease;
-  opacity: 1;
-}
-.trust-seals-mini.one-line img:hover{ transform: scale(1.06); }
-
-/* no celular reduz para caber 4 em uma linha */
-@media (max-width: 560px){
-  .trust-seals-mini.one-line{ gap:12px; }
-  .trust-seals-mini.one-line img{ width:72px; }
 }
 
 /* ------------------------- */
@@ -425,11 +370,75 @@ a{ color:inherit; text-decoration:none }
 }
 
 /* ------------------------- */
-/* RESPONSIVO GERAL */
+/* RODAPÉ */
+/* ------------------------- */
+.footer{
+  background:#0b0d10;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:50px 0 25px;
+  margin-top:40px;
+}
+
+.footer-grid{
+  display:grid;
+  gap:40px;
+}
+
+.footer-title{
+  font-size:20px;
+  margin-bottom:15px;
+  color: rgba(255,255,255,.95);
+}
+
+.footer-subtitle{
+  font-size:14px;
+  margin-bottom:15px;
+  color: rgba(255,255,255,.90);
+}
+
+.footer-text{
+  font-size:13px;
+  color: rgba(255,255,255,.65);
+  max-width:320px;
+}
+
+.footer-links{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-links li{
+  font-size:13px;
+  margin-bottom:8px;
+  color: rgba(255,255,255,.65);
+}
+
+.footer-links a{
+  color: rgba(255,255,255,.65);
+  text-decoration:none;
+  transition:.2s;
+}
+.footer-links a:hover{
+  color: var(--green);
+}
+
+.footer-bottom{
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  font-size:12px;
+  color: rgba(255,255,255,.45);
+}
+
+/* ------------------------- */
+/* RESPONSIVO */
 /* ------------------------- */
 @media (min-width: 760px){
   .grid{ grid-template-columns: 1fr 1fr }
   .h1{ font-size:52px }
   .sticky-cta{ display:none }
   body{ padding-bottom:0 }
+  .footer-grid{ grid-template-columns:1.5fr 1fr 1fr; }
 }
