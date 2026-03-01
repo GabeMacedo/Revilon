@@ -358,84 +358,115 @@ a{ color:inherit; text-decoration:none }
   border-radius:18px;
 }
 /* =========================
-   FAQ EM BALÕES (claro e clicável)
+   FAQ em BALÕES (cada pergunta = 1 balão)
+   - Abre com animação
+   - Pergunta maior / resposta menor
 ========================= */
-.faq-grid{
-  display:grid;
-  gap:12px;
-  margin-top:14px;
+
+.faq-baloes .p{ margin-bottom: 14px; }
+
+.faq-baloes-list{
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
 }
 
-@media (min-width:760px){
-  .faq-grid{ grid-template-columns:1fr 1fr; }
+/* desktop pode virar 2 colunas, se quiser */
+@media (min-width: 760px){
+  .faq-baloes-list{
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
 }
 
-.faq-bubble{
-  border:1px solid rgba(255,255,255,.10);
+/* o BALÃO */
+.faq-balao{
+  border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
-  border-radius:18px;
-  overflow:hidden;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0,0,0,.30);
   transition: transform .18s ease, background .18s ease, border-color .18s ease;
 }
 
-/* remove a setinha padrão do browser */
-.faq-bubble summary::-webkit-details-marker{ display:none; }
-.faq-bubble summary{ list-style:none; }
+/* remove setinha padrão do navegador */
+.faq-balao summary::-webkit-details-marker{ display:none; }
+.faq-balao summary{ list-style:none; }
 
-.faq-bubble summary{
-  padding:16px 14px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  font-weight:800;
-  color: rgba(255,255,255,.92);
+/* área clicável */
+.faq-balao summary{
+  cursor: pointer;
+  padding: 16px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-/* o + vira - quando abre */
-.faq-plus{
-  width:28px;
-  height:28px;
-  border-radius:999px;
-  display:grid;
-  place-items:center;
-  border:1px solid rgba(255,255,255,.14);
+/* PERGUNTA maior */
+.faq-pergunta{
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.25;
+  color: rgba(255,255,255,.95);
+}
+
+/* botão + */
+.faq-icone{
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.14);
   background: rgba(0,0,0,.25);
   color: rgba(255,255,255,.85);
   flex: 0 0 auto;
-  transition: transform .18s ease;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
 }
 
-.faq-bubble[open]{
+/* quando abre: balão cresce POUCO + muda borda levemente */
+.faq-balao[open]{
   transform: scale(1.02);
   background: rgba(255,255,255,.05);
   border-color: rgba(46,139,87,.45);
 }
 
-.faq-bubble[open] .faq-plus{
-  transform: rotate(45deg); /* + vira X (fica claro que fechou) */
+/* + vira X (bem claro) */
+.faq-balao[open] .faq-icone{
+  transform: rotate(45deg);
+  border-color: rgba(46,139,87,.45);
 }
 
-.faq-answer{
+/* animação da resposta: “abrindo” */
+.faq-resposta{
   padding: 0 14px 14px;
   color: rgba(255,255,255,.72);
-  font-size:14px;
-  line-height:1.55;
+  font-size: 13px;        /* resposta menor */
+  line-height: 1.55;
+
+  /* animação suave sem JS */
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .22s ease;
 }
 
-/* ------------------------- */
-/* RESPONSIVO */
-/* ------------------------- */
-@media (min-width: 760px){
+.faq-resposta::before{
+  content:"";
+  display:block;
+  height: 1px;
+  background: rgba(255,255,255,.08);
+  margin: 0 0 12px;
+}
 
-  .trust-seals-mini{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-  }
+.faq-balao[open] .faq-resposta{
+  grid-template-rows: 1fr;
+}
 
-  .trust-seals-mini img{
-    width:160px;   /* 🔥 bem maior no desktop */
-  }
+.faq-resposta{
+  overflow: hidden;
+}
+
+.faq-balao[open] .faq-resposta{
+  overflow: visible;
 }
