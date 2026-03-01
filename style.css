@@ -436,3 +436,31 @@ ul{ margin:0; padding:0; list-style:none; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
 }
+/* ===== PATCH: tamanho correto do slider no PC e no mobile ===== */
+
+/* base: controla altura do bloco de imagem */
+.product-slide img{
+  width: 100%;
+  height: clamp(320px, 48vw, 520px); /* mobile -> médio -> desktop */
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* desktop: deixa o slider mais “alto” e com cara premium */
+@media (min-width: 760px){
+  .product-slider{
+    max-width: 860px;     /* controla largura pra não ficar estreito */
+    margin: 14px auto 18px;
+  }
+
+  .product-slide img{
+    height: 520px;        /* tamanho bom no PC */
+  }
+}
+
+/* mobile: impede ficar enorme */
+@media (max-width: 480px){
+  .product-slide img{
+    height: 320px;        /* tamanho bom no celular */
+  }
+}
