@@ -1,9 +1,9 @@
 /* =========================================================
-   Relivon™ — style.css (ATUALIZADO E COMPLETO)
-   - Mantém seu visual premium/escuro
-   - Corrige slider (se você usar .product-slide direto no HTML)
-   - Adiciona seção "Garantia / Urgência" (#garantia)
-   - Ajusta CTA fixo: por padrão aparece no mobile; desktop some
+   Relivon™ — style.css (MELHORADO E COMPLETO)
+   - Premium escuro, consistente
+   - Slider com FALLBACK:
+       • com .slider-track = automático (animação)
+       • sem .slider-track = scroll no dedo
    ========================================================= */
 
 /* ------------------------- */
@@ -12,22 +12,21 @@
 :root{
   --bg:#0f1113;
   --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.04);
   --stroke: rgba(255,255,255,.10);
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.70);
 
   --green:#2E8B57;
   --green2:#1c6e42;
+  --blue:#0F2A47;
 
   --shadow: 0 18px 50px rgba(0,0,0,.45);
+  --shadow2: 0 10px 30px rgba(0,0,0,.35);
+
   --radius: 18px;
   --radius2: 22px;
   --max: 980px;
-
-  /* extras (completando) */
-  --blue:#0F2A47;
-  --shadow2: 0 10px 30px rgba(0,0,0,.35);
-  --glass: rgba(0,0,0,.35);
 }
 
 /* ------------------------- */
@@ -46,7 +45,7 @@ body{
   color:var(--text);
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
-  padding-bottom:92px; /* espaço para CTA fixo */
+  padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)); /* CTA fixo */
 }
 
 a{ color:inherit; text-decoration:none }
@@ -54,12 +53,16 @@ a{ color:inherit; text-decoration:none }
 .section{ padding:26px 0 }
 
 img{ max-width:100%; height:auto; display:block; }
-ul{ margin:0; padding:0; }
+ul{ margin:0; padding:0; list-style:none; }
 
-/* Seleção de texto (detalhe premium) */
-::selection{
-  background: rgba(46,139,87,.35);
+::selection{ background: rgba(46,139,87,.35); }
+
+:focus-visible{
+  outline: 2px solid rgba(46,139,87,.9);
+  outline-offset: 3px;
 }
+
+*{ -webkit-tap-highlight-color: transparent; }
 
 /* ------------------------- */
 /* BANNER */
@@ -77,7 +80,7 @@ ul{ margin:0; padding:0; }
   object-fit:cover;
 }
 
-/* mini bar fina */
+/* mini bar */
 .banner-mini{
   margin:12px auto 0;
   max-width:var(--max);
@@ -144,19 +147,13 @@ ul{ margin:0; padding:0; }
 .btn:hover{ filter:saturate(1.08) brightness(1.02); }
 .btn:active{ transform: scale(.98) }
 
-.btn--pulse{ animation: pulse 2.2s ease-in-out infinite; }
-@keyframes pulse{
-  0%,100%{ filter:saturate(1) }
-  50%{ filter:saturate(1.15) }
-}
-
 /* ------------------------- */
 /* CARD / TIPOGRAFIA */
 /* ------------------------- */
 .card{
   border-radius: var(--radius2);
   border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  background: var(--panel2);
   box-shadow: var(--shadow);
   padding:18px;
   overflow:hidden;
@@ -181,7 +178,7 @@ ul{ margin:0; padding:0; }
 }
 
 /* ------------------------- */
-/* NOVO: GARANTIA + URGÊNCIA (seção #garantia do HTML) */
+/* GARANTIA */
 /* ------------------------- */
 #garantia .card{
   border-color: rgba(46,139,87,.28);
@@ -207,123 +204,94 @@ ul{ margin:0; padding:0; }
 }
 .bullets{
   margin:10px 0 0;
-  padding:0;
-  list-style:none;
 }
 .bullets li{
-  padding:8px 0;
+  padding:10px 0;
   border-bottom:1px solid rgba(255,255,255,.06);
   color: rgba(255,255,255,.82);
 }
 .bullets li:last-child{ border-bottom:none }
 
 /* ------------------------- */
-/* SLIDER (CORRIGIDO PARA SEU HTML ATUAL) */
-/* - Seu HTML usa: .product-slider > .product-slide * 3
-   - Então precisamos deixar rolável horizontal e sem fundo branco
-   - Se você usa JS com .product-slides também, o CSS abaixo não atrapalha
+/* SLIDER DO PRODUTO (FALLBACK INTELIGENTE) */
+/* 1) Se existir .slider-track dentro -> anima automático
+   2) Se NÃO existir -> vira scroll no dedo
 /* ------------------------- */
 .product-slider{
+  position: relative;
   margin:12px 0 16px;
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding-bottom:8px;
-
   border-radius: 20px;
   border:1px solid rgba(255,255,255,.08);
   background: rgba(0,0,0,.25);
+  overflow: hidden;
 }
-.product-slider::-webkit-scrollbar{ height:8px; }
-.product-slider::-webkit-scrollbar-thumb{
+
+/* ===== MODO 1: Automático (precisa .slider-track no HTML) ===== */
+.product-slider .slider-track{
+  display:flex;
+  width: 600%;              /* 6 imagens */
+  animation: relivonSlide 18s infinite;
+  will-change: transform;
+}
+
+.product-slider .slider-track .product-slide{
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+/* ===== MODO 2: Sem .slider-track -> scroll no dedo ===== */
+.product-slider:not(:has(.slider-track)){
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display:flex;
+  gap:12px;
+  padding: 10px;
+}
+.product-slider:not(:has(.slider-track))::-webkit-scrollbar{ height:8px; }
+.product-slider:not(:has(.slider-track))::-webkit-scrollbar-thumb{
   background: rgba(255,255,255,.12);
   border-radius:999px;
 }
-.product-slide{
+.product-slider:not(:has(.slider-track)) .product-slide{
   min-width: min(360px, 85vw);
   scroll-snap-align:center;
+}
 
+/* Slides e imagens */
+.product-slide{
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:18px;
   border:1px solid rgba(255,255,255,.08);
-  background: transparent;
+  background: rgba(255,255,255,.02);
   overflow:hidden;
 }
 .product-slide img{
   width:100%;
-  height:auto;
   display:block;
-  object-fit:contain;
+  border-radius:18px;
+  object-fit: cover; /* fica premium */
   background: transparent;
 }
 
-/* Se você tiver a versão com wrapper .product-slides (opcional) */
-.product-slides{
-  display:flex;
-  transition: transform .35s ease;
-  will-change: transform;
+/* Keyframes do automático (6 imagens) */
+@keyframes relivonSlide{
+  0%, 12%   { transform: translateX(0%); }
+  18%, 30%  { transform: translateX(-100%); }
+  36%, 48%  { transform: translateX(-200%); }
+  54%, 66%  { transform: translateX(-300%); }
+  72%, 84%  { transform: translateX(-400%); }
+  90%, 100% { transform: translateX(-500%); }
 }
 
-/* Setas e bolinhas (caso seu JS injete) */
-.pnav{
-  position:absolute;
-  top:50%;
-  transform: translateY(-50%);
-  width:44px;
-  height:44px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.35);
-  color: rgba(255,255,255,.92);
-  font-size:26px;
-  line-height:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  backdrop-filter: blur(6px);
-}
-.pnav.prev{ left:10px }
-.pnav.next{ right:10px }
-
-.pdots{
-  position:absolute;
-  left:50%;
-  bottom:10px;
-  transform: translateX(-50%);
-  display:flex;
-  gap:8px;
-}
-.pdots button{
-  width:8px;
-  height:8px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.18);
-  cursor:pointer;
-}
-.pdots button.is-active{
-  width:18px;
-  background: rgba(46,139,87,.95);
-  border-color: rgba(46,139,87,.95);
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce){
+  .product-slider .slider-track{ animation: none; }
 }
 
 /* BUY bloco */
 .buy{ margin-top:10px; padding-top:6px; }
-.guarantee-text{
-  margin-top:12px;
-  padding:12px 14px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  color: rgba(255,255,255,.78);
-  font-size:13px;
-  line-height:1.45;
-}
 
 /* ------------------------- */
 /* PROVA SOCIAL */
@@ -338,28 +306,25 @@ ul{ margin:0; padding:0; }
   color: rgba(255,255,255,.78);
 }
 
-/* -------------------------
-   FAQ BALÕES (abre com animação)
-------------------------- */
+/* ------------------------- */
+/* FAQ */
+/* ------------------------- */
 .faq-baloes-list{
   display:flex;
   flex-direction:column;
   gap:14px;
   margin-top:18px;
 }
-
 .faq-balao{
   background: rgba(255,255,255,0.04);
   border-radius:22px;
   border:1px solid rgba(255,255,255,0.08);
   overflow:hidden;
   transition: all .25s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  box-shadow: var(--shadow2);
 }
-
 .faq-balao summary::-webkit-details-marker{ display:none; }
 .faq-balao summary{ list-style:none; }
-
 .faq-balao summary{
   cursor:pointer;
   padding:18px;
@@ -368,41 +333,17 @@ ul{ margin:0; padding:0; }
   align-items:center;
   gap:12px;
 }
-
 .faq-pergunta{
   font-size:16px;
   font-weight:800;
   color: rgba(255,255,255,.95);
   line-height:1.25;
 }
-
-/* Ícone opcional (se você usar no HTML). Se não usar, não atrapalha. */
-.faq-icone{
-  width:34px;
-  height:34px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  font-weight:800;
-  border:1px solid rgba(255,255,255,0.12);
-  background: rgba(0,0,0,0.35);
-  color:white;
-  transition: all .25s ease;
-  flex: 0 0 auto;
-}
-
 .faq-balao[open]{
   background: rgba(255,255,255,0.07);
   border-color: rgba(46,139,87,0.55);
-  transform: scale(1.015);
+  transform: scale(1.01);
 }
-.faq-balao[open] .faq-icone{
-  transform: rotate(45deg);
-  border-color: rgba(46,139,87,0.55);
-}
-
 .faq-resposta{
   padding:0 18px 18px;
   font-size:13px;
@@ -416,8 +357,7 @@ ul{ margin:0; padding:0; }
 }
 
 /* ------------------------- */
-/* CTA STICKY (MOBILE) */
-/* - Mantém premium: overlay escuro + blur
+/* CTA STICKY (mobile) */
 /* ------------------------- */
 .sticky-cta{
   position:fixed;
@@ -427,20 +367,20 @@ ul{ margin:0; padding:0; }
   padding:12px 16px;
   background: linear-gradient(180deg, rgba(15,17,19,0), rgba(15,17,19,.85));
   backdrop-filter: blur(8px);
+  opacity: 1;
+  transform: translateY(0);
+  transition: .2s ease;
 }
 .sticky-cta .btn{
   width:100%;
   border-radius:18px;
 }
 
-/* Se você ativar via JS a classe .is-on, isso ajuda.
-   Caso não use JS, ela continua aparecendo no mobile como antes. */
-.sticky-cta.is-on{
-  animation: stickyIn .18s ease;
-}
-@keyframes stickyIn{
-  from{ opacity:0; transform:translateY(10px); }
-  to{ opacity:1; transform:translateY(0); }
+/* Se seu JS adicionar .is-visible (recomendado) */
+.sticky-cta[aria-hidden="true"]{
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
 }
 
 /* ------------------------- */
@@ -452,51 +392,26 @@ ul{ margin:0; padding:0; }
   padding:50px 0 25px;
   margin-top:40px;
 }
-
 .footer-grid{
   display:grid;
   gap:40px;
 }
-
 .footer-title{
   font-size:20px;
   margin-bottom:15px;
   color: rgba(255,255,255,.95);
 }
-
-.footer-subtitle{
-  font-size:14px;
-  margin-bottom:15px;
-  color: rgba(255,255,255,.90);
-}
-
 .footer-text{
   font-size:13px;
   color: rgba(255,255,255,.65);
   max-width:320px;
 }
-
-.footer-links{
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-
-.footer-links li{
-  font-size:13px;
-  margin-bottom:8px;
-  color: rgba(255,255,255,.65);
-}
-
 .footer a{
   color: rgba(255,255,255,.65);
   text-decoration:none;
   transition:.2s;
 }
-.footer a:hover{
-  color: var(--green);
-}
-
+.footer a:hover{ color: var(--green); }
 .footer-bottom{
   margin-top:40px;
   padding-top:20px;
@@ -510,46 +425,14 @@ ul{ margin:0; padding:0; }
 /* RESPONSIVO */
 /* ------------------------- */
 @media (min-width: 760px){
-  .grid{ grid-template-columns: 1fr 1fr }
-  .h1{ font-size:52px }
-  .sticky-cta{ display:none }
-  body{ padding-bottom:0 }
+  .grid{ grid-template-columns: 1fr 1fr; }
+  .h1{ font-size:52px; }
+  .sticky-cta{ display:none; }
+  body{ padding-bottom:0; }
   .footer-grid{ grid-template-columns:1.5fr 1fr 1fr; }
 }
-
-/* Pequeno ajuste para telas muito pequenas */
 @media (max-width: 380px){
   .h1{ font-size:34px; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
-}
-
-@keyframes slideAnimation {
-  0%   { transform: translateX(0); }
-  16%  { transform: translateX(0); }
-
-  20%  { transform: translateX(-100%); }
-  36%  { transform: translateX(-100%); }
-
-  40%  { transform: translateX(-200%); }
-  56%  { transform: translateX(-200%); }
-
-  60%  { transform: translateX(-300%); }
-  76%  { transform: translateX(-300%); }
-
-  80%  { transform: translateX(-400%); }
-  96%  { transform: translateX(-400%); }
-
-  100% { transform: translateX(-500%); }
-}
-.product-slider{ outline: 3px solid red; }
-/* Diminuir tamanho do slider */
-.product-slider{
-  max-width: 420px;   /* controla largura */
-  margin: 20px auto;  /* centraliza */
-}
-
-.product-slider img{
-  height: 420px;      /* controla altura */
-  object-fit: cover;
 }
