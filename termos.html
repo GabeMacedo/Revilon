@@ -1,1 +1,72 @@
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Termos de Uso | Suporte Térmico</title>
+  <meta name="description" content="Termos de Uso do Suporte Térmico." />
+  <style>
+    :root{--bg:#0b0f14;--text:#e9eef6;--muted:#a8b3c4;--border:rgba(255,255,255,.08);--accent:#2E8B57}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:radial-gradient(900px 500px at 70% -20%, rgba(46,139,87,.22), transparent 60%), var(--bg);color:var(--text)}
+    a{color:inherit} .wrap{max-width:900px;margin:0 auto;padding:22px 16px 40px}
+    .top{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);padding:10px 12px;border-radius:12px;text-decoration:none}
+    .card{border:1px solid var(--border);background:rgba(255,255,255,.03);border-radius:18px;padding:18px}
+    h1{margin:10px 0 8px;font-size:26px} h2{margin:18px 0 8px;font-size:18px}
+    p,li{color:var(--muted);line-height:1.7} ul{margin:8px 0 0 18px}
+    .meta{color:var(--muted);font-size:14px} .foot{margin-top:14px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="btn" href="index.html">← Voltar para a loja</a>
+      <span class="badge">Suporte Térmico</span>
+    </div>
+
+    <div class="card">
+      <h1>Termos de Uso</h1>
+      <div class="meta">Última atualização: <span id="date"></span></div>
+
+      <p>Ao acessar este site, você concorda com estes Termos. Se não concordar, não utilize o site.</p>
+
+      <h2>1. Uso do site</h2>
+      <ul>
+        <li>Você se compromete a usar o site de forma lícita e segura.</li>
+        <li>É proibido tentar invadir, explorar falhas, ou interferir no funcionamento do site.</li>
+      </ul>
+
+      <h2>2. Informações e conteúdo</h2>
+      <p>As informações exibidas (descrições, imagens, textos) podem ser atualizadas sem aviso. O conteúdo não substitui orientação médica.</p>
+
+      <h2>3. Compras e pagamentos</h2>
+      <ul>
+        <li>Ao comprar, você confirma que os dados fornecidos são corretos.</li>
+        <li>Pagamentos são processados por provedores parceiros. O pedido pode passar por validações antifraude.</li>
+      </ul>
+
+      <h2>4. Propriedade intelectual</h2>
+      <p>Marca, layout, textos e elementos visuais pertencem ao site e não podem ser copiados para fins comerciais sem autorização.</p>
+
+      <h2>5. Limitação de responsabilidade</h2>
+      <p>Não nos responsabilizamos por indisponibilidade temporária, falhas de terceiros (pagamento/entrega) ou uso indevido do produto.</p>
+
+      <h2>6. Alterações</h2>
+      <p>Podemos alterar estes Termos a qualquer momento. A versão atual estará sempre nesta página.</p>
+
+      <h2>7. Contato</h2>
+      <p>Para dúvidas, utilize os canais informados no rodapé do site.</p>
+
+      <div class="foot">© <span id="year"></span> Suporte Térmico. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    const now = new Date();
+    document.getElementById("year").textContent = now.getFullYear();
+    document.getElementById("date").textContent = now.toLocaleDateString("pt-BR");
+  </script>
+</body>
+</html>
