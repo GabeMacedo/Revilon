@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suporte Térmico | Produto Oficial</title>
+
+  <!-- AJUSTE 3: Marca consistente (título) -->
+  <title>Relivon™ | Produto Oficial</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Seu CSS externo -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- CTA FIXO MOBILE -->
-  <div class="sticky-cta">
+  <!-- AJUSTE 4: CTA FIXO (mantido no HTML, mas pronto para ser controlado por JS externo) -->
+  <!-- Dica: no seu JS externo, faça aparecer só depois de rolar (ex: scrollY > 300) -->
+  <div class="sticky-cta" id="stickyCta" data-show-after="320" aria-hidden="true">
     <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
   </div>
 
@@ -27,20 +32,46 @@
   </div>
 
   <!-- HERO -->
-  <header class="section">
+  <header class="section" id="topo">
     <div class="container">
       <span class="kicker">Calor Terapêutico + Compressão</span>
 
-      <h1 class="h1">A dor não se resolve sozinha.</h1>
+      <!-- AJUSTE 1: Frase de emoção forte -->
+      <h1 class="h1">Seu corpo aguenta.<br>Mas até quando?</h1>
 
       <p class="sub">
-        Tecnologia de aquecimento direcionado para quem trabalha duro,
+        Calor terapêutico + compressão firme para quem trabalha duro,
         treina pesado ou passa longas horas em pé.
       </p>
 
       <a class="btn" href="#comprar">QUERO ALÍVIO AGORA</a>
+
+      <div class="banner-mini" style="margin-top:12px;">
+        ✔️ Envio em até 24h • ✔️ Rastreio por WhatsApp • ✔️ Atendimento no Brasil
+      </div>
     </div>
   </header>
+
+  <!-- AJUSTE 2: Urgência + Garantia (nova seção, sem mexer no resto) -->
+  <section class="section" id="garantia">
+    <div class="container">
+      <div class="card">
+        <h2 class="h2">🛡️ Garantia Blindada de 30 Dias</h2>
+
+        <p class="p">
+          Teste por <strong>30 dias completos</strong>. Se não sentir melhora no conforto, estabilidade e suporte,
+          devolvemos <strong>100% do seu dinheiro</strong>.<br>
+          <strong>Você assume o produto. Nós assumimos o risco.</strong>
+        </p>
+
+        <ul class="bullets">
+          <li>🔥 <strong>Alta demanda</strong> nas últimas semanas</li>
+          <li>📦 Lote atual pode <strong>esgotar rapidamente</strong></li>
+          <li>🚚 Envio rápido + <strong>rastreio</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <!-- PRODUTO -->
   <section class="section" id="produto">
@@ -70,7 +101,13 @@
             durante suas atividades diárias.
           </p>
 
+          <!-- Mantive o botão, mas apontando para #comprar é redundante.
+               Se você tiver link de checkout, troque o href aqui. -->
           <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
+
+          <div class="mini" style="margin-top:12px;">
+            Garantia 30 dias • Checkout Seguro • Suporte via WhatsApp
+          </div>
         </div>
 
       </div>
@@ -173,45 +210,54 @@
         <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
 
         <div class="mini">
-          Checkout Seguro • Envio Rápido
+          Garantia 30 dias • Checkout Seguro • Envio Rápido
         </div>
       </div>
     </div>
   </section>
-<!-- RODAPÉ -->
-<footer class="footer">
-  <div class="container">
 
-    <div class="footer-grid">
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container">
 
-      <!-- Marca -->
-      <div class="footer-col">
-        <h3 class="footer-title">Suporte Térmico</h3>
-        <p class="footer-text">
-          Produto desenvolvido para auxiliar no conforto muscular
-          e proporcionar mais estabilidade na rotina diária.
-        </p>
+      <div class="footer-grid">
+
+        <!-- AJUSTE 3: Marca consistente (rodapé) -->
+        <div class="footer-col">
+          <h3 class="footer-title">Relivon™</h3>
+          <p class="footer-text">
+            Produto desenvolvido para auxiliar no conforto muscular
+            e proporcionar mais estabilidade na rotina diária.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-col">
+          <ul>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termos.html">Termos de Uso</a></li>
+            <li><a href="reembolso.html">Política de Reembolso</a></li>
+            <li><a href="envio.html">Envio e Entrega</a></li>
+          </ul>
+        </div>
+
+        <!-- Contato -->
+        <div class="footer-col">
+          <ul>
+            <li>Email: <a href="mailto:Atendimento.relivon@gmail.com">Atendimento.relivon@gmail.com</a></li>
+            <li>WhatsApp: <a href="https://wa.me/5544987348303" target="_blank" rel="noopener">+55 44 98734-8303</a></li>
+            <li>Atendimento: Seg a Sex</li>
+          </ul>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        © 2026 Relivon™. Todos os direitos reservados.
       </div>
 
-      <ul>
-  <li><a href="privacidade.html">Política de Privacidade</a></li>
-  <li><a href="termos.html">Termos de Uso</a></li>
-  <li><a href="reembolso.html">Política de Reembolso</a></li>
-  <li><a href="envio.html">Envio e Entrega</a></li>
-</ul>
+    </div><!-- /container -->
+  </footer>
 
-      <!-- Contato -->
-      <ul>
-  <li>Email: <a href="mailto:Atendimento.relivon@gmail.com">Atendimento.relivon@gmail.com</a></li>
-  <li>WhatsApp: <a href="https://wa.me/5544987348303" target="_blank" rel="noopener">+55 44 98734-8303</a></li>
-  <li>Atendimento: Seg a Sex</li>
-</ul>
-
-    <div class="footer-bottom">
-      © 2026 Suporte Térmico. Todos os direitos reservados.
-    </div>
-
-  </div>
-</footer>
 </body>
 </html>
