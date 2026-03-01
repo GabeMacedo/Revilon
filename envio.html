@@ -1,1 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Envio e Entrega | Suporte Térmico</title>
+  <meta name="description" content="Política de Envio e Entrega do Suporte Térmico." />
+  <style>
+    :root{--bg:#0b0f14;--text:#e9eef6;--muted:#a8b3c4;--border:rgba(255,255,255,.08);--accent:#2E8B57}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:radial-gradient(900px 500px at 70% -20%, rgba(46,139,87,.22), transparent 60%), var(--bg);color:var(--text)}
+    a{color:inherit} .wrap{max-width:900px;margin:0 auto;padding:22px 16px 40px}
+    .top{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);padding:10px 12px;border-radius:12px;text-decoration:none}
+    .card{border:1px solid var(--border);background:rgba(255,255,255,.03);border-radius:18px;padding:18px}
+    h1{margin:10px 0 8px;font-size:26px} h2{margin:18px 0 8px;font-size:18px}
+    p,li{color:var(--muted);line-height:1.7} ul{margin:8px 0 0 18px}
+    .meta{color:var(--muted);font-size:14px} .foot{margin-top:14px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="btn" href="index.html">← Voltar para a loja</a>
+      <span class="badge">Suporte Térmico</span>
+    </div>
 
+    <div class="card">
+      <h1>Envio e Entrega</h1>
+      <div class="meta">Última atualização: <span id="date"></span></div>
+
+      <h2>1. Prazo de processamento</h2>
+      <p>Após a confirmação do pagamento, o pedido entra em processamento e separação para envio.</p>
+
+      <h2>2. Prazos de entrega</h2>
+      <p>O prazo varia conforme a sua região e o método de envio. O prazo final pode ser exibido no checkout ou na confirmação do pedido.</p>
+
+      <h2>3. Rastreamento</h2>
+      <p>Quando disponível, enviamos o código de rastreio para acompanhamento.</p>
+
+      <h2>4. Endereço incorreto</h2>
+      <p>Confira seu endereço antes de finalizar. Endereço incompleto/incorreto pode causar devolução ou atraso.</p>
+
+      <h2>5. Tentativas de entrega</h2>
+      <p>O transportador pode realizar tentativas de entrega. Caso não haja ninguém no local, pode ocorrer reenvio ou devolução.</p>
+
+      <h2>6. Atrasos</h2>
+      <p>Podem ocorrer atrasos por alta demanda, logística, greves, clima ou fatores fora do nosso controle.</p>
+
+      <div class="foot">© <span id="year"></span> Suporte Térmico. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    const now = new Date();
+    document.getElementById("year").textContent = now.getFullYear();
+    document.getElementById("date").textContent = now.toLocaleDateString("pt-BR");
+  </script>
+</body>
+</html>
