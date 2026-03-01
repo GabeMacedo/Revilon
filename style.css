@@ -523,30 +523,6 @@ ul{ margin:0; padding:0; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
 }
-.product-slider {
-  overflow: hidden;
-  width: 100%;
-  border-radius: 18px;
-  margin-top: 15px;
-}
-
-.slider-track {
-  display: flex;
-  width: calc(100% * 6);
-  animation: slideAnimation 18s infinite;
-}
-
-.product-slide {
-  width: 100%;
-  flex-shrink: 0;
-}
-
-.product-slide img {
-  width: 100%;
-  display: block;
-  border-radius: 18px;
-  object-fit: cover;
-}
 
 @keyframes slideAnimation {
   0%   { transform: translateX(0); }
