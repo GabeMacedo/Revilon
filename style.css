@@ -609,3 +609,5 @@ ul{ margin:0; padding:0; }
 @media (max-width: 480px){
   .slider-btn{ width: 38px; height: 38px; font-size: 24px; }
 }
+.sticky-cta{opacity:0;pointer-events:none;transform:translateY(14px);transition:.25s}
+.sticky-cta.is-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
