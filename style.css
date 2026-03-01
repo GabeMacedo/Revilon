@@ -1,3 +1,14 @@
+/* =========================================================
+   Relivon™ — style.css (ATUALIZADO E COMPLETO)
+   - Mantém seu visual premium/escuro
+   - Corrige slider (se você usar .product-slide direto no HTML)
+   - Adiciona seção "Garantia / Urgência" (#garantia)
+   - Ajusta CTA fixo: por padrão aparece no mobile; desktop some
+   ========================================================= */
+
+/* ------------------------- */
+/* VARIÁVEIS */
+/* ------------------------- */
 :root{
   --bg:#0f1113;
   --panel: rgba(255,255,255,.06);
@@ -12,10 +23,19 @@
   --radius: 18px;
   --radius2: 22px;
   --max: 980px;
+
+  /* extras (completando) */
+  --blue:#0F2A47;
+  --shadow2: 0 10px 30px rgba(0,0,0,.35);
+  --glass: rgba(0,0,0,.35);
 }
 
+/* ------------------------- */
+/* BASE */
+/* ------------------------- */
 *{ box-sizing:border-box }
 html,body{ margin:0; padding:0 }
+html{ scroll-behavior:smooth; }
 
 body{
   font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -33,6 +53,14 @@ a{ color:inherit; text-decoration:none }
 .container{ max-width:var(--max); margin:0 auto; padding:0 18px }
 .section{ padding:26px 0 }
 
+img{ max-width:100%; height:auto; display:block; }
+ul{ margin:0; padding:0; }
+
+/* Seleção de texto (detalhe premium) */
+::selection{
+  background: rgba(46,139,87,.35);
+}
+
 /* ------------------------- */
 /* BANNER */
 /* ------------------------- */
@@ -40,6 +68,7 @@ a{ color:inherit; text-decoration:none }
   width:100%;
   overflow:hidden;
   background:#0b0d10;
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 .banner img{
   width:100%;
@@ -88,7 +117,6 @@ a{ color:inherit; text-decoration:none }
   line-height:1.5;
   max-width: 680px;
 }
-
 .mini{
   margin-top:12px;
   font-size:12px;
@@ -113,10 +141,10 @@ a{ color:inherit; text-decoration:none }
   border:1px solid rgba(255,255,255,.10);
   transition: transform .12s ease, filter .12s ease;
 }
+.btn:hover{ filter:saturate(1.08) brightness(1.02); }
 .btn:active{ transform: scale(.98) }
-.btn--pulse{
-  animation: pulse 2.2s ease-in-out infinite;
-}
+
+.btn--pulse{ animation: pulse 2.2s ease-in-out infinite; }
 @keyframes pulse{
   0%,100%{ filter:saturate(1) }
   50%{ filter:saturate(1.15) }
@@ -153,6 +181,23 @@ a{ color:inherit; text-decoration:none }
 }
 
 /* ------------------------- */
+/* NOVO: GARANTIA + URGÊNCIA (seção #garantia do HTML) */
+/* ------------------------- */
+#garantia .card{
+  border-color: rgba(46,139,87,.28);
+  background:
+    radial-gradient(900px 520px at 10% 0%, rgba(46,139,87,.18), transparent 55%),
+    radial-gradient(900px 520px at 85% 10%, rgba(15,42,71,.22), transparent 55%),
+    rgba(255,255,255,.04);
+}
+#garantia .bullets li{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.18);
+}
+
+/* ------------------------- */
 /* GRID BENEFÍCIOS */
 /* ------------------------- */
 .grid{
@@ -173,28 +218,40 @@ a{ color:inherit; text-decoration:none }
 .bullets li:last-child{ border-bottom:none }
 
 /* ------------------------- */
-/* SLIDER (SEM FUNDO BRANCO) */
+/* SLIDER (CORRIGIDO PARA SEU HTML ATUAL) */
+/* - Seu HTML usa: .product-slider > .product-slide * 3
+   - Então precisamos deixar rolável horizontal e sem fundo branco
+   - Se você usa JS com .product-slides também, o CSS abaixo não atrapalha
 /* ------------------------- */
 .product-slider{
-  position:relative;
+  margin:12px 0 16px;
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding-bottom:8px;
+
   border-radius: 20px;
-  overflow:hidden;
   border:1px solid rgba(255,255,255,.08);
   background: rgba(0,0,0,.25);
-  margin:12px 0 16px;
 }
-
-.product-slides{
-  display:flex;
-  transition: transform .35s ease;
-  will-change: transform;
+.product-slider::-webkit-scrollbar{ height:8px; }
+.product-slider::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.12);
+  border-radius:999px;
 }
 .product-slide{
-  min-width:100%;
+  min-width: min(360px, 85vw);
+  scroll-snap-align:center;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
   background: transparent;
+  overflow:hidden;
 }
 .product-slide img{
   width:100%;
@@ -204,7 +261,14 @@ a{ color:inherit; text-decoration:none }
   background: transparent;
 }
 
-/* setas */
+/* Se você tiver a versão com wrapper .product-slides (opcional) */
+.product-slides{
+  display:flex;
+  transition: transform .35s ease;
+  will-change: transform;
+}
+
+/* Setas e bolinhas (caso seu JS injete) */
 .pnav{
   position:absolute;
   top:50%;
@@ -226,7 +290,6 @@ a{ color:inherit; text-decoration:none }
 .pnav.prev{ left:10px }
 .pnav.next{ right:10px }
 
-/* bolinhas (se seu JS cria botões aqui) */
 .pdots{
   position:absolute;
   left:50%;
@@ -313,7 +376,7 @@ a{ color:inherit; text-decoration:none }
   line-height:1.25;
 }
 
-/* Se você estiver usando o ícone + no HTML */
+/* Ícone opcional (se você usar no HTML). Se não usar, não atrapalha. */
 .faq-icone{
   width:34px;
   height:34px;
@@ -353,7 +416,8 @@ a{ color:inherit; text-decoration:none }
 }
 
 /* ------------------------- */
-/* CTA STICKY */
+/* CTA STICKY (MOBILE) */
+/* - Mantém premium: overlay escuro + blur
 /* ------------------------- */
 .sticky-cta{
   position:fixed;
@@ -367,6 +431,16 @@ a{ color:inherit; text-decoration:none }
 .sticky-cta .btn{
   width:100%;
   border-radius:18px;
+}
+
+/* Se você ativar via JS a classe .is-on, isso ajuda.
+   Caso não use JS, ela continua aparecendo no mobile como antes. */
+.sticky-cta.is-on{
+  animation: stickyIn .18s ease;
+}
+@keyframes stickyIn{
+  from{ opacity:0; transform:translateY(10px); }
+  to{ opacity:1; transform:translateY(0); }
 }
 
 /* ------------------------- */
@@ -414,12 +488,12 @@ a{ color:inherit; text-decoration:none }
   color: rgba(255,255,255,.65);
 }
 
-.footer-links a{
+.footer a{
   color: rgba(255,255,255,.65);
   text-decoration:none;
   transition:.2s;
 }
-.footer-links a:hover{
+.footer a:hover{
   color: var(--green);
 }
 
@@ -441,4 +515,11 @@ a{ color:inherit; text-decoration:none }
   .sticky-cta{ display:none }
   body{ padding-bottom:0 }
   .footer-grid{ grid-template-columns:1.5fr 1fr 1fr; }
+}
+
+/* Pequeno ajuste para telas muito pequenas */
+@media (max-width: 380px){
+  .h1{ font-size:34px; }
+  .btn{ min-height:50px; }
+  .banner-mini{ border-radius:16px; }
 }
