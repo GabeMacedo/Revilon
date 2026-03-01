@@ -433,3 +433,67 @@ a{ color:inherit; text-decoration:none }
   .sticky-cta{ display:none }
   body{ padding-bottom:0 }
 }
+/* =========================
+   SELOS ESTILO PROFISSIONAL
+========================= */
+
+.seals-title{
+  font-size:18px;
+  margin-bottom:20px;
+  color:rgba(255,255,255,.9);
+}
+
+.seals-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  flex-wrap:nowrap; /* nunca quebra */
+}
+
+.seal-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex:1;
+}
+
+.seal-item img{
+  width:60px;
+  height:auto;
+  object-fit:contain;
+}
+
+.seal-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.seal-text strong{
+  font-size:14px;
+  color:white;
+}
+
+.seal-text span{
+  font-size:12px;
+  color:rgba(255,255,255,.65);
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .seals-wrapper{
+    gap:20px;
+  }
+
+  .seal-item img{
+    width:45px;
+  }
+
+  .seal-text strong{
+    font-size:12px;
+  }
+
+  .seal-text span{
+    font-size:10px;
+  }
+}
