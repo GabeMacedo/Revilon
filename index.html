@@ -74,30 +74,23 @@
   </section>
 
   <!-- PRODUTO -->
- <div class="product-slider">
-  <div class="product-slide">
-    <img src="img/produto-1.png" alt="Relivon - Foto 1">
+<div class="slider" aria-label="Galeria do produto">
+  <button class="slider-btn prev" type="button" aria-label="Imagem anterior">‹</button>
+
+  <div class="slider-viewport">
+    <div class="slider-track" id="sliderTrack">
+      <div class="slide"><img src="img/produto-1.png" alt="Relivon - Foto 1" loading="lazy"></div>
+      <div class="slide"><img src="img/produto-2.png" alt="Relivon - Foto 2" loading="lazy"></div>
+      <div class="slide"><img src="img/produto-3.png" alt="Relivon - Foto 3" loading="lazy"></div>
+      <div class="slide"><img src="img/produto-4.png" alt="Relivon - Foto 4" loading="lazy"></div>
+      <div class="slide"><img src="img/produto-5.png" alt="Relivon - Foto 5" loading="lazy"></div>
+      <div class="slide"><img src="img/produto-6.png" alt="Relivon - Foto 6" loading="lazy"></div>
+    </div>
   </div>
 
-  <div class="product-slide">
-    <img src="img/produto-2.png" alt="Relivon - Foto 2">
-  </div>
+  <button class="slider-btn next" type="button" aria-label="Próxima imagem">›</button>
 
-  <div class="product-slide">
-    <img src="img/produto-3.png" alt="Relivon - Foto 3">
-  </div>
-
-  <div class="product-slide">
-    <img src="img/produto-4.png" alt="Relivon - Foto 4">
-  </div>
-
-  <div class="product-slide">
-    <img src="img/produto-5.png" alt="Relivon - Foto 5">
-  </div>
-
-  <div class="product-slide">
-    <img src="img/produto-6.png" alt="Relivon - Foto 6">
-  </div>
+  <div class="dots" id="sliderDots" aria-label="Seleção de imagem"></div>
 </div>
 
         <!-- COMPRAR -->
