@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relivon™ | Suporte Térmico</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suporte Térmico | Produto Oficial</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Se você já tem style.css, deixa assim -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -19,7 +21,7 @@
 
   <!-- BANNER -->
   <section class="banner">
-    <img src="Design sem nome_20260227_105101_0000.jpg" alt="Relivon Banner">
+    <img src="Design sem nome_20260227_105101_0000.jpg" alt="Banner do Produto">
   </section>
 
   <div class="banner-mini">
@@ -30,9 +32,12 @@
   <header class="hero">
     <div class="container">
       <span class="kicker">Calor Terapêutico + Compressão</span>
+
       <h1 class="h1">A dor não se resolve sozinha.</h1>
+
       <p class="sub">
-        Terapia de calor direcionada para quem trabalha duro e se recusa a diminuir o ritmo.
+        Aquecimento direcionado + suporte firme para ajudar no conforto muscular
+        após rotina intensa, trabalho pesado ou treino.
       </p>
 
       <a class="btn btn--pulse" href="#comprar">QUERO ALÍVIO AGORA</a>
@@ -46,42 +51,43 @@
     </div>
   </header>
 
-  <!-- PRODUTO -->
+  <!-- PRODUTO (SLIDER) -->
   <section class="section" id="produto">
     <div class="container">
       <div class="card">
 
-        <h2 class="h2">Suporte Térmico</h2>
-        <p class="p">Veja o produto por diferentes ângulos antes de comprar.</p>
+        <h2 class="h2">Conheça o Produto</h2>
+        <p class="p">Veja por diferentes ângulos antes de comprar.</p>
 
         <div class="product-slider" id="productSlider">
           <div class="product-slides">
             <div class="product-slide">
-              <img src="file_000000009ebc71f5b4fc30b653f128ad.png" alt="Produto 1">
+              <img src="file_000000009ebc71f5b4fc30b653f128ad.png" alt="Produto ângulo 1">
             </div>
             <div class="product-slide">
-              <img src="file_00000000d1f871f5b5cdcf291a011907.png" alt="Produto 2">
+              <img src="file_00000000d1f871f5b5cdcf291a011907.png" alt="Produto ângulo 2">
             </div>
             <div class="product-slide">
-              <img src="file_00000000da80720e8eedcce9da18c7d1.png" alt="Produto 3">
+              <img src="file_00000000da80720e8eedcce9da18c7d1.png" alt="Produto ângulo 3">
             </div>
           </div>
 
-          <button class="pnav prev" type="button">‹</button>
-          <button class="pnav next" type="button">›</button>
-          <div class="pdots"></div>
+          <button class="pnav prev" type="button" aria-label="Anterior">‹</button>
+          <button class="pnav next" type="button" aria-label="Próximo">›</button>
+          <div class="pdots" aria-hidden="true"></div>
         </div>
 
+        <!-- COMPRAR -->
         <div class="buy" id="comprar">
           <h3 class="h3">Assuma o controle hoje</h3>
           <p class="p">
-            Adicione à sua rotina e sinta a diferença nas primeiras utilizações.
+            Produto pensado para quem quer conforto e estabilidade na rotina.
           </p>
 
           <a class="btn btn--pulse" href="#comprar">GARANTIR O MEU AGORA</a>
 
           <div class="guarantee-text">
-            Compra 100% segura e protegida.
+            Compra protegida e suporte em caso de necessidade.
           </div>
         </div>
 
@@ -93,25 +99,25 @@
   <section class="section">
     <div class="container">
       <div class="grid">
+
         <div class="box">
-          <h2 class="h2">Ainda ignorando essa dor?</h2>
+          <h2 class="h2">Para quem é?</h2>
           <p class="p">
-            Longas horas.<br>
-            Treinos pesados.<br>
-            Ficar em pé o dia todo.<br><br>
-            Seu corpo está dando sinais.
+            Para quem trabalha em pé, treina, pega peso, faz esforço repetitivo
+            e quer uma solução prática para o dia a dia.
           </p>
         </div>
 
         <div class="box">
-          <h2 class="h2">Calor + Suporte = Alívio</h2>
+          <h2 class="h2">O que ele entrega</h2>
           <ul class="bullets">
-            <li>✔ Calor terapêutico profundo</li>
-            <li>✔ Compressão firme</li>
+            <li>✔ Aquecimento direcionado</li>
+            <li>✔ Suporte firme (compressão)</li>
             <li>✔ Ajuste confortável</li>
-            <li>✔ Ideal para uso diário</li>
+            <li>✔ Uso prático na rotina</li>
           </ul>
         </div>
+
       </div>
     </div>
   </section>
@@ -124,27 +130,15 @@
         <div class="mini">2.000+ clientes satisfeitos</div>
 
         <div class="quotes">
-          <div class="quote">“Sinto diferença logo após usar.”</div>
-          <div class="quote">“Muito melhor que depender de remédios.”</div>
-          <div class="quote">“Confortável e realmente eficiente.”</div>
+          <div class="quote">“Percebi conforto já nas primeiras utilizações.”</div>
+          <div class="quote">“Firme, confortável e muito prático.”</div>
+          <div class="quote">“Ótimo para rotina intensa.”</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SELOS (4) -->
-  <section class="section">
-    <div class="container">
-      <div class="trust-seals-mini">
-        <img src="file_000000002ad4720eb126a1a9d2e3604d.png" alt="Selo Principal">
-        <img src="file_000000007a28720e999710d73f8b6f70.png" alt="Selo Segurança">
-        <img src="file_000000000bd471f5ae2c6d3a49cd2b72.png" alt="Selo Garantia">
-        <img src="file_000000002404720e9b7c356406673258.png" alt="Selo Compra sem Risco">
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ (BALÕES) -->
+  <!-- FAQ EM BALÕES -->
   <section class="section faq-baloes" id="faq">
     <div class="container">
       <div class="card">
@@ -170,19 +164,8 @@
               <span class="faq-icone">+</span>
             </summary>
             <div class="faq-resposta">
-              O aquecimento é direcionado para a região aplicada, projetado para oferecer conforto térmico e auxiliar
-              no relaxamento muscular e sensação de alívio local.
-            </div>
-          </details>
-
-          <details class="faq-balao">
-            <summary>
-              <span class="faq-pergunta">Em quanto tempo posso perceber diferença?</span>
-              <span class="faq-icone">+</span>
-            </summary>
-            <div class="faq-resposta">
-              A percepção é individual. Muitos relatam conforto já nas primeiras utilizações.
-              Para resultados mais consistentes, recomenda-se uso regular.
+              O aquecimento é direcionado para proporcionar conforto térmico e auxiliar no relaxamento muscular,
+              melhorando a sensação de alívio local.
             </div>
           </details>
 
@@ -192,37 +175,7 @@
               <span class="faq-icone">+</span>
             </summary>
             <div class="faq-resposta">
-              Sim. O produto foi pensado para uso recorrente. Respeite seu conforto e faça pausas quando necessário.
-            </div>
-          </details>
-
-          <details class="faq-balao">
-            <summary>
-              <span class="faq-pergunta">É confortável e ajustável?</span>
-              <span class="faq-icone">+</span>
-            </summary>
-            <div class="faq-resposta">
-              Sim. Possui ajuste para melhor encaixe e estabilidade, ajudando a manter a compressão sem comprometer o conforto.
-            </div>
-          </details>
-
-          <details class="faq-balao">
-            <summary>
-              <span class="faq-pergunta">É seguro comprar no site?</span>
-              <span class="faq-icone">+</span>
-            </summary>
-            <div class="faq-resposta">
-              Sim. Checkout protegido e dados tratados com medidas de segurança. Você também conta com suporte caso precise.
-            </div>
-          </details>
-
-          <details class="faq-balao">
-            <summary>
-              <span class="faq-pergunta">Qual é o prazo de envio?</span>
-              <span class="faq-icone">+</span>
-            </summary>
-            <div class="faq-resposta">
-              O prazo varia por região. A estimativa final aparece no checkout antes de concluir a compra.
+              Sim. Foi pensado para uso recorrente. Respeite seu conforto e faça pausas quando necessário.
             </div>
           </details>
 
@@ -232,7 +185,7 @@
               <span class="faq-icone">+</span>
             </summary>
             <div class="faq-resposta">
-              Não. É um suporte auxiliar. Se a dor for intensa, persistente ou com outros sintomas, procure orientação profissional.
+              Não. É um suporte auxiliar para rotina. Em caso de dor intensa ou persistente, procure orientação profissional.
             </div>
           </details>
 
@@ -246,15 +199,25 @@
     <div class="container">
       <div class="card center">
         <h2 class="h2">
-          Você pode continuar ignorando a dor.<br>
+          Você pode continuar ignorando o desconforto.<br>
           Ou assumir o controle hoje.
         </h2>
 
         <a class="btn btn--pulse" href="#comprar">GARANTIR O MEU AGORA</a>
 
-        <div class="mini">
-          Checkout Seguro • Envio Rápido
-        </div>
+        <div class="mini">Checkout Seguro • Envio Rápido</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELOS (1 LINHA) - EMBAIXO DO FECHAMENTO -->
+  <section class="section seals-final">
+    <div class="container">
+      <div class="trust-seals-mini one-line">
+        <img src="file_000000002ad4720eb126a1a9d2e3604d.png" alt="Selo 1">
+        <img src="file_000000007a28720e999710d73f8b6f70.png" alt="Selo 2">
+        <img src="file_000000000bd471f5ae2c6d3a49cd2b72.png" alt="Selo 3">
+        <img src="file_000000002404720e9b7c356406673258.png" alt="Selo 4">
       </div>
     </div>
   </section>
