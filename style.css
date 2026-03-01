@@ -567,3 +567,13 @@ ul{ margin:0; padding:0; }
   100% { transform: translateX(-500%); }
 }
 .product-slider{ outline: 3px solid red; }
+/* Diminuir tamanho do slider */
+.product-slider{
+  max-width: 420px;   /* controla largura */
+  margin: 20px auto;  /* centraliza */
+}
+
+.product-slider img{
+  height: 420px;      /* controla altura */
+  object-fit: cover;
+}
