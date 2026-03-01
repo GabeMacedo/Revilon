@@ -566,3 +566,4 @@ ul{ margin:0; padding:0; }
 
   100% { transform: translateX(-500%); }
 }
+.product-slider{ outline: 3px solid red; }
