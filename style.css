@@ -574,3 +574,7 @@ ul{ margin:0; padding:0; list-style:none; }
   padding: 0 !important;          /* tira o espaço */
   object-fit: cover !important;    /* PREENCHE o quadrado */
 }
+/* Remove setas do slider */
+.pslider__nav{
+  display: none !important;
+}
