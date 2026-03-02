@@ -428,3 +428,7 @@ ul{ margin:0; padding:0; list-style:none; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
 }
+/* 🔥 Remove totalmente as setas do slider */
+.pslider__nav{
+  display: none !important;
+}
