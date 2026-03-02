@@ -15,13 +15,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
 
-  <!-- Preload do banner (troque se mudar o nome do arquivo) -->
+  <!-- Preload do banner -->
   <link rel="preload" as="image" href="Design sem nome_20260227_105101_0000.jpg" />
 
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS (apenas 1 vez + cache bust) -->
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
-<link rel="stylesheet" href="style.css?v=5">
+
 <body>
 
   <!-- CTA FIXO -->
@@ -83,29 +83,39 @@
     </div>
   </section>
 
-  <!-- PRODUTO -->
+  <!-- PRODUTO (SLIDER) -->
+  <section class="section" id="produto">
+    <div class="container">
+      <div class="card">
 
+        <h2 class="h2">Conheça o Produto</h2>
+        <p class="p">Veja por diferentes ângulos antes de comprar.</p>
 
-      <!-- COMPRAR -->
-      <div class="buy" id="comprar">
-        <h3 class="h3">Assuma o controle hoje</h3>
-        <p class="p">
-          Integre o produto à sua rotina e sinta mais conforto
-          durante suas atividades diárias.
-        </p>
-
-        <a class="btn" href="#comprar">GARANTIR O MEU AGORA</a>
-
-        <div class="mini" style="margin-top:12px;">
-          Garantia 30 dias • Checkout Seguro • Suporte via WhatsApp
+        <!-- Slider automático -->
+        <div class="product-slider" id="galeria" aria-label="Galeria do produto">
+          <div class="slider-track">
+            <div class="product-slide">
+              <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="Relivon 1" loading="lazy" />
+            </div>
+            <div class="product-slide">
+              <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="Relivon 2" loading="lazy" />
+            </div>
+            <div class="product-slide">
+              <img src="file_000000006960720eb88ca3cc1f4579fd.png" alt="Relivon 3" loading="lazy" />
+            </div>
+            <div class="product-slide">
+              <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="Relivon 4" loading="lazy" />
+            </div>
+            <div class="product-slide">
+              <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="Relivon 5" loading="lazy" />
+            </div>
+            <div class="product-slide">
+              <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="Relivon 6" loading="lazy" />
+            </div>
+          </div>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-        <!-- COMPRAR -->
+        <!-- COMPRAR (apenas 1 vez) -->
         <div class="buy" id="comprar">
           <h3 class="h3">Assuma o controle hoje</h3>
 
@@ -114,7 +124,7 @@
             durante suas atividades diárias.
           </p>
 
-          <!-- Troque o href para seu checkout (Cartpanda / Shopify / etc.) -->
+          <!-- Troque o href para seu checkout -->
           <a class="btn" href="#comprar" aria-label="Ir para o checkout e garantir o produto">
             GARANTIR O MEU AGORA
           </a>
@@ -179,34 +189,20 @@
         <h2 class="h2">Perguntas Frequentes</h2>
 
         <div class="faq-baloes-list">
-
           <details class="faq-balao">
-            <summary>
-              <span class="faq-pergunta">O produto é indicado para quais situações?</span>
-            </summary>
-            <div class="faq-resposta">
-              Indicado para conforto muscular após esforço físico ou rotina intensa.
-            </div>
+            <summary><span class="faq-pergunta">O produto é indicado para quais situações?</span></summary>
+            <div class="faq-resposta">Indicado para conforto muscular após esforço físico ou rotina intensa.</div>
           </details>
 
           <details class="faq-balao">
-            <summary>
-              <span class="faq-pergunta">Posso usar todos os dias?</span>
-            </summary>
-            <div class="faq-resposta">
-              Sim. Foi desenvolvido para uso recorrente, respeitando seu conforto.
-            </div>
+            <summary><span class="faq-pergunta">Posso usar todos os dias?</span></summary>
+            <div class="faq-resposta">Sim. Foi desenvolvido para uso recorrente, respeitando seu conforto.</div>
           </details>
 
           <details class="faq-balao">
-            <summary>
-              <span class="faq-pergunta">O produto substitui tratamento médico?</span>
-            </summary>
-            <div class="faq-resposta">
-              Não. Trata-se de um suporte auxiliar.
-            </div>
+            <summary><span class="faq-pergunta">O produto substitui tratamento médico?</span></summary>
+            <div class="faq-resposta">Não. Trata-se de um suporte auxiliar.</div>
           </details>
-
         </div>
       </div>
     </div>
@@ -233,7 +229,6 @@
   <!-- RODAPÉ -->
   <footer class="footer">
     <div class="container">
-
       <div class="footer-grid">
 
         <div class="footer-col">
@@ -266,9 +261,8 @@
       <div class="footer-bottom">
         © 2026 Relivon™. Todos os direitos reservados.
       </div>
-
     </div>
   </footer>
-<link rel="stylesheet" href="style.css">
+
 </body>
 </html>
