@@ -15,11 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
 
-  <!-- Preload do banner -->
-  <link rel="preload" as="image" href="Design sem nome_20260227_105101_0000.jpg" />
-
-  <!-- CSS (apenas 1 vez + cache bust) -->
-  <link rel="stylesheet" href="style.css?v=6" />
+  <!-- CSS (deixe SÓ este link) -->
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 
 <body>
@@ -83,48 +80,106 @@
     </div>
   </section>
 
-  <!-- PRODUTO (SLIDER) -->
-  <section class="section" id="produto">
+  <!-- PRODUTO + SLIDER PREMIUM -->
+  <section class="section" id="produto" aria-label="Galeria do produto">
     <div class="container">
-      <div class="card">
+      <div class="card center">
 
         <h2 class="h2">Conheça o Produto</h2>
         <p class="p">Veja por diferentes ângulos antes de comprar.</p>
 
-        <!-- Slider automático -->
-        <div class="product-slider" id="galeria" aria-label="Galeria do produto">
-          <div class="slider-track">
-            <div class="product-slide">
-              <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="Relivon 1" loading="lazy" />
-            </div>
-            <div class="product-slide">
-              <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="Relivon 2" loading="lazy" />
-            </div>
-            <div class="product-slide">
-              <img src="file_000000006960720eb88ca3cc1f4579fd.png" alt="Relivon 3" loading="lazy" />
-            </div>
-            <div class="product-slide">
-              <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="Relivon 4" loading="lazy" />
-            </div>
-            <div class="product-slide">
-              <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="Relivon 5" loading="lazy" />
-            </div>
-            <div class="product-slide">
-              <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="Relivon 6" loading="lazy" />
+        <!-- SLIDER PREMIUM (estrutura) -->
+        <div class="pslider" id="pslider" aria-roledescription="carousel" aria-label="Galeria de fotos do produto">
+
+          <!-- viewport -->
+          <div class="pslider__viewport">
+
+            <!-- track (cada slide ocupa 100%) -->
+            <div class="pslider__track">
+
+              <!-- Slide 1 -->
+              <figure class="pslider__slide is-active" data-index="0">
+                <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="Relivon — Foto do produto 1" />
+              </figure>
+
+              <!-- Slide 2 -->
+              <figure class="pslider__slide" data-index="1">
+                <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="Relivon — Foto do produto 2" />
+              </figure>
+
+              <!-- Slide 3 -->
+              <figure class="pslider__slide" data-index="2">
+                <img src="file_000000006960720eb88ca3cc1f4579fd.png" alt="Relivon — Foto do produto 3" />
+              </figure>
+
+              <!-- Slide 4 -->
+              <figure class="pslider__slide" data-index="3">
+                <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="Relivon — Foto do produto 4" />
+              </figure>
+
+              <!-- Slide 5 -->
+              <figure class="pslider__slide" data-index="4">
+                <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="Relivon — Foto do produto 5" />
+              </figure>
+
+              <!-- Slide 6 -->
+              <figure class="pslider__slide" data-index="5">
+                <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="Relivon — Foto do produto 6" />
+              </figure>
+
             </div>
           </div>
-        </div>
 
-        <!-- COMPRAR (apenas 1 vez) -->
+          <!-- Controles -->
+          <button class="pslider__nav pslider__nav--prev" type="button" aria-label="Foto anterior">
+            ‹
+          </button>
+          <button class="pslider__nav pslider__nav--next" type="button" aria-label="Próxima foto">
+            ›
+          </button>
+
+          <!-- Dots + contador -->
+          <div class="pslider__meta" aria-label="Navegação do slider">
+            <div class="pslider__dots" role="tablist" aria-label="Selecionar foto"></div>
+            <div class="pslider__count" aria-live="polite">
+              <span class="pslider__current">1</span>/<span class="pslider__total">6</span>
+            </div>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="pslider__thumbs" aria-label="Miniaturas da galeria">
+            <button type="button" class="pslider__thumb is-active" data-goto="0" aria-label="Ver foto 1">
+              <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="" />
+            </button>
+            <button type="button" class="pslider__thumb" data-goto="1" aria-label="Ver foto 2">
+              <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="" />
+            </button>
+            <button type="button" class="pslider__thumb" data-goto="2" aria-label="Ver foto 3">
+              <img src="file_000000006960720eb88ca3cc1f4579fd.png" alt="" />
+            </button>
+            <button type="button" class="pslider__thumb" data-goto="3" aria-label="Ver foto 4">
+              <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="" />
+            </button>
+            <button type="button" class="pslider__thumb" data-goto="4" aria-label="Ver foto 5">
+              <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="" />
+            </button>
+            <button type="button" class="pslider__thumb" data-goto="5" aria-label="Ver foto 6">
+              <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="" />
+            </button>
+          </div>
+
+        </div>
+        <!-- /SLIDER PREMIUM -->
+
+        <!-- COMPRAR -->
         <div class="buy" id="comprar">
           <h3 class="h3">Assuma o controle hoje</h3>
-
           <p class="p">
             Integre o produto à sua rotina e sinta mais conforto
             durante suas atividades diárias.
           </p>
 
-          <!-- Troque o href para seu checkout -->
+          <!-- Troque para seu checkout real -->
           <a class="btn" href="#comprar" aria-label="Ir para o checkout e garantir o produto">
             GARANTIR O MEU AGORA
           </a>
@@ -189,20 +244,34 @@
         <h2 class="h2">Perguntas Frequentes</h2>
 
         <div class="faq-baloes-list">
+
           <details class="faq-balao">
-            <summary><span class="faq-pergunta">O produto é indicado para quais situações?</span></summary>
-            <div class="faq-resposta">Indicado para conforto muscular após esforço físico ou rotina intensa.</div>
+            <summary>
+              <span class="faq-pergunta">O produto é indicado para quais situações?</span>
+            </summary>
+            <div class="faq-resposta">
+              Indicado para conforto muscular após esforço físico ou rotina intensa.
+            </div>
           </details>
 
           <details class="faq-balao">
-            <summary><span class="faq-pergunta">Posso usar todos os dias?</span></summary>
-            <div class="faq-resposta">Sim. Foi desenvolvido para uso recorrente, respeitando seu conforto.</div>
+            <summary>
+              <span class="faq-pergunta">Posso usar todos os dias?</span>
+            </summary>
+            <div class="faq-resposta">
+              Sim. Foi desenvolvido para uso recorrente, respeitando seu conforto.
+            </div>
           </details>
 
           <details class="faq-balao">
-            <summary><span class="faq-pergunta">O produto substitui tratamento médico?</span></summary>
-            <div class="faq-resposta">Não. Trata-se de um suporte auxiliar.</div>
+            <summary>
+              <span class="faq-pergunta">O produto substitui tratamento médico?</span>
+            </summary>
+            <div class="faq-resposta">
+              Não. Trata-se de um suporte auxiliar.
+            </div>
           </details>
+
         </div>
       </div>
     </div>
@@ -229,6 +298,7 @@
   <!-- RODAPÉ -->
   <footer class="footer">
     <div class="container">
+
       <div class="footer-grid">
 
         <div class="footer-col">
@@ -261,8 +331,12 @@
       <div class="footer-bottom">
         © 2026 Relivon™. Todos os direitos reservados.
       </div>
+
     </div>
   </footer>
+
+  <!-- JS (coloque seu arquivo aqui) -->
+  <script src="script.js?v=10" defer>script.js</script>
 <link rel="stylesheet" href="style.css?v=9">
 </body>
 </html>
