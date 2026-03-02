@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
 
   <!-- CSS (deixe SÓ este link) -->
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=20" />
 </head>
 
 <body>
@@ -88,23 +88,21 @@
         <h2 class="h2">Conheça o Produto</h2>
         <p class="p">Veja por diferentes ângulos antes de comprar.</p>
 
-        <!-- SLIDER PREMIUM (estrutura) -->
+        <!-- SLIDER PREMIUM -->
         <div class="pslider" id="pslider" aria-roledescription="carousel" aria-label="Galeria de fotos do produto">
 
           <!-- viewport -->
           <div class="pslider__viewport">
-
-            <!-- track (cada slide ocupa 100%) -->
             <div class="pslider__track">
 
               <!-- Slide 1 -->
               <figure class="pslider__slide is-active" data-index="0">
-                <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="Relivon — Foto do produto 1" />
+                <img src="file_00000000c64071f5a72187a72fa6b7b1.png" alt="Relivon — Foto do produto 1" />
               </figure>
 
               <!-- Slide 2 -->
               <figure class="pslider__slide" data-index="1">
-                <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="Relivon — Foto do produto 2" />
+                <img src="file_00000000ea6471f58d76b6fa1f29bb65.png" alt="Relivon — Foto do produto 2" />
               </figure>
 
               <!-- Slide 3 -->
@@ -114,57 +112,45 @@
 
               <!-- Slide 4 -->
               <figure class="pslider__slide" data-index="3">
-                <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="Relivon — Foto do produto 4" />
+                <img src="file_00000000dc68720e89f693a9026dc9b0.png" alt="Relivon — Foto do produto 4" />
               </figure>
 
               <!-- Slide 5 -->
               <figure class="pslider__slide" data-index="4">
-                <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="Relivon — Foto do produto 5" />
-              </figure>
-
-              <!-- Slide 6 -->
-              <figure class="pslider__slide" data-index="5">
-                <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="Relivon — Foto do produto 6" />
+                <img src="file_00000000a11871f5b790c30a219e098d.png" alt="Relivon — Foto do produto 5" />
               </figure>
 
             </div>
           </div>
 
-          <!-- Controles -->
-          <button class="pslider__nav pslider__nav--prev" type="button" aria-label="Foto anterior">
-            ‹
-          </button>
-          <button class="pslider__nav pslider__nav--next" type="button" aria-label="Próxima foto">
-            ›
-          </button>
+          <!-- Setas (se você quiser esconder no CSS mobile, ok) -->
+          <button class="pslider__nav pslider__nav--prev" type="button" aria-label="Foto anterior">‹</button>
+          <button class="pslider__nav pslider__nav--next" type="button" aria-label="Próxima foto">›</button>
 
           <!-- Dots + contador -->
           <div class="pslider__meta" aria-label="Navegação do slider">
             <div class="pslider__dots" role="tablist" aria-label="Selecionar foto"></div>
             <div class="pslider__count" aria-live="polite">
-              <span class="pslider__current">1</span>/<span class="pslider__total">6</span>
+              <span class="pslider__current">1</span>/<span class="pslider__total">5</span>
             </div>
           </div>
 
           <!-- Thumbnails -->
           <div class="pslider__thumbs" aria-label="Miniaturas da galeria">
             <button type="button" class="pslider__thumb is-active" data-goto="0" aria-label="Ver foto 1">
-              <img src="file_000000000e5471f5ab9c7c7ec30ef8d6.png" alt="" />
+              <img src="file_00000000c64071f5a72187a72fa6b7b1.png" alt="" />
             </button>
             <button type="button" class="pslider__thumb" data-goto="1" aria-label="Ver foto 2">
-              <img src="file_0000000010f871f597e9ab88c2f7b37c.png" alt="" />
+              <img src="file_00000000ea6471f58d76b6fa1f29bb65.png" alt="" />
             </button>
             <button type="button" class="pslider__thumb" data-goto="2" aria-label="Ver foto 3">
               <img src="file_000000006960720eb88ca3cc1f4579fd.png" alt="" />
             </button>
             <button type="button" class="pslider__thumb" data-goto="3" aria-label="Ver foto 4">
-              <img src="file_00000000c82c71f5bb50a1127143321a.png" alt="" />
+              <img src="file_00000000dc68720e89f693a9026dc9b0.png" alt="" />
             </button>
             <button type="button" class="pslider__thumb" data-goto="4" aria-label="Ver foto 5">
-              <img src="file_00000000d08471f58fced79b0a0f5c13.png" alt="" />
-            </button>
-            <button type="button" class="pslider__thumb" data-goto="5" aria-label="Ver foto 6">
-              <img src="file_00000000f6f871f5ad86e0800c573da0.png" alt="" />
+              <img src="file_00000000a11871f5b790c30a219e098d.png" alt="" />
             </button>
           </div>
 
@@ -179,7 +165,6 @@
             durante suas atividades diárias.
           </p>
 
-          <!-- Troque para seu checkout real -->
           <a class="btn" href="#comprar" aria-label="Ir para o checkout e garantir o produto">
             GARANTIR O MEU AGORA
           </a>
@@ -335,8 +320,8 @@
     </div>
   </footer>
 
-  <!-- JS (coloque seu arquivo aqui) -->
-  <script src="script.js?v=10" defer>script.js</script>
-<link rel="stylesheet" href="style.css?v=999">
+  <!-- JS (apenas ESTE script) -->
+  <script src="script.js?v=20" defer></script>
+
 </body>
 </html>
