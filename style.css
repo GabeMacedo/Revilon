@@ -464,3 +464,12 @@ ul{ margin:0; padding:0; list-style:none; }
     height: 320px;        /* tamanho bom no celular */
   }
 }
+/* Mostrar produto inteiro sem cortar */
+.product-slide img{
+  width: 100% !important;
+  height: 380px !important;   /* controla o tamanho */
+  object-fit: contain !important;
+  background: #0f1113;        /* fundo escuro atrás da imagem */
+  padding: 20px;              /* espaço interno para respirar */
+  border-radius: 18px;
+}
