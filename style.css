@@ -473,3 +473,7 @@ ul{ margin:0; padding:0; list-style:none; }
   padding: 20px;              /* espaço interno para respirar */
   border-radius: 18px;
 }
+/* Slider mais lento */
+.product-slider .slider-track{
+  animation-duration: 36s !important; /* era 18s */
+}
