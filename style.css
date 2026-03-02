@@ -1,10 +1,8 @@
 /* =========================================================
-   Relivon™ — style.css (ATUALIZADO COMPLETO)
-   - Premium escuro (preto profundo + azul escuro + verde discreto)
-   - Slider automático (id="galeria" + .slider-track)
-   - Produto aparece INTEIRO (contain)
-   - Tamanho correto PC vs Mobile
-   - Sem duplicações / sem conflitos
+   Relivon™ — style.css (COMPLETO ATUALIZADO)
+   - Premium escuro
+   - Textos + botões centralizados
+   - Slider #galeria pronto (JS controla / CSS não atrapalha)
    ========================================================= */
 
 /* ------------------------- */
@@ -79,6 +77,8 @@ ul{ margin:0; padding:0; list-style:none; }
   display:block;
   object-fit:cover;
 }
+
+/* mini bar */
 .banner-mini{
   margin:12px auto 0;
   max-width:var(--max);
@@ -95,6 +95,8 @@ ul{ margin:0; padding:0; list-style:none; }
 /* ------------------------- */
 /* HERO */
 /* ------------------------- */
+#topo .container{ text-align:center; }
+
 .kicker{
   display:inline-flex;
   padding:8px 12px;
@@ -112,7 +114,7 @@ ul{ margin:0; padding:0; list-style:none; }
   letter-spacing:-.7px;
 }
 .sub{
-  margin:0 0 16px;
+  margin:0 auto 16px;
   color: var(--muted);
   font-size:15px;
   line-height:1.5;
@@ -145,6 +147,8 @@ ul{ margin:0; padding:0; list-style:none; }
 .btn:hover{ filter:saturate(1.08) brightness(1.02); }
 .btn:active{ transform: scale(.98) }
 
+#topo .btn{ margin: 0 auto; }
+
 /* ------------------------- */
 /* CARD / TIPOGRAFIA */
 /* ------------------------- */
@@ -167,6 +171,13 @@ ul{ margin:0; padding:0; list-style:none; }
   line-height:1.55;
 }
 
+/* centralizar textos em cards (padrão premium) */
+.grid .card,
+#produto .card,
+#garantia .card{
+  text-align:center;
+}
+
 /* ------------------------- */
 /* GARANTIA */
 /* ------------------------- */
@@ -177,21 +188,16 @@ ul{ margin:0; padding:0; list-style:none; }
     radial-gradient(900px 520px at 85% 10%, rgba(15,42,71,.22), transparent 55%),
     rgba(255,255,255,.04);
 }
+
 .bullets{ margin:10px 0 0; }
 .bullets li{
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  color: rgba(255,255,255,.82);
-}
-#garantia .bullets li{
   padding:10px 12px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background: rgba(0,0,0,.18);
-  border-bottom:none;
+  color: rgba(255,255,255,.86);
   margin-top:8px;
 }
-.bullets li:last-child{ border-bottom:none }
 
 /* ------------------------- */
 /* GRID */
@@ -202,18 +208,13 @@ ul{ margin:0; padding:0; list-style:none; }
   gap:14px;
 }
 
-/* =========================================================
-   SLIDER AUTOMÁTICO (PASSA FOTOS)
-   - Requer HTML:
-     <div class="product-slider" id="galeria">
-       <div class="slider-track">
-         <div class="product-slide"><img ...></div>...
-       </div>
-     </div>
-   ========================================================= */
+/* ------------------------- */
+/* SLIDER #GALERIA */
+/* (JS controla o slide. CSS só garante aparência/tamanho) */
+/* ------------------------- */
 #galeria.product-slider{
   position: relative;
-  margin:12px 0 16px;
+  margin:12px auto 16px;
   border-radius: 20px;
   border:1px solid rgba(255,255,255,.10);
   background: rgba(0,0,0,.25);
@@ -221,92 +222,71 @@ ul{ margin:0; padding:0; list-style:none; }
   box-shadow: var(--shadow2);
 }
 
-/* Track */
+/* NÃO anima no CSS pra não brigar com o JS */
 #galeria .slider-track{
-  display:flex;
-  width: 600%;                 /* 6 imagens */
-  will-change: transform;
-  animation: relivonSlide 36s ease-in-out infinite;
+  animation: none !important;
 }
 
-/* Cada slide ocupa 100% */
+/* slide */
 #galeria .product-slide{
-  flex: 0 0 100%;
-  width: 100%;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-/* Imagem (produto inteiro + tamanho ideal) */
+/* imagem — produto inteiro + tamanho correto */
 #galeria .product-slide img{
   width: 100%;
-  height: 320px;               /* mobile */
-  object-fit: contain;         /* produto inteiro */
+  height: 320px;          /* mobile */
+  object-fit: contain;
   background: #0f1113;
   padding: 16px;
   display:block;
 }
 
-/* Desktop */
+/* desktop */
 @media (min-width: 760px){
+  #galeria{
+    max-width: 860px;
+  }
   #galeria .product-slide img{
     height: 520px;
     padding: 22px;
   }
 }
 
-/* Pausas em cada imagem (6 imagens) */
-@keyframes relivonSlide{
-  0%, 14%     { transform: translateX(0%); }
-  18%, 32%    { transform: translateX(-100%); }
-  36%, 50%    { transform: translateX(-200%); }
-  54%, 68%    { transform: translateX(-300%); }
-  72%, 86%    { transform: translateX(-400%); }
-  90%, 100%   { transform: translateX(-500%); }
-}
-
-/* Respeita quem prefere menos animação */
-@media (prefers-reduced-motion: reduce){
-  #galeria .slider-track{ animation: none; }
-}
-
-/* Fallback: se usar product-slider SEM slider-track (scroll) */
-.product-slider:not(:has(.slider-track)){
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
+/* dots (se você usar <div class="pdots"></div>) */
+.pdots{
   display:flex;
-  gap:12px;
-  padding: 10px;
-  border-radius: 20px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.25);
+  justify-content:center;
+  gap:8px;
+  margin-top:12px;
 }
-.product-slider:not(:has(.slider-track))::-webkit-scrollbar{ height:8px; }
-.product-slider:not(:has(.slider-track))::-webkit-scrollbar-thumb{
-  background: rgba(255,255,255,.12);
+.pdot{
+  width:9px;
+  height:9px;
   border-radius:999px;
+  border:1px solid rgba(255,255,255,.20);
+  background: rgba(255,255,255,.18);
+  cursor:pointer;
 }
-.product-slider:not(:has(.slider-track)) .product-slide{
-  min-width: min(360px, 85vw);
-  scroll-snap-align:center;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.02);
-  overflow:hidden;
-}
-.product-slider:not(:has(.slider-track)) .product-slide img{
-  width:100%;
-  height:320px;
-  object-fit: contain;
-  background:#0f1113;
-  padding:16px;
+.pdot.is-active{
+  width:18px;
+  background: rgba(46,139,87,.95);
+  border-color: rgba(46,139,87,.95);
 }
 
 /* ------------------------- */
 /* BUY */
 /* ------------------------- */
-.buy{ margin-top:10px; padding-top:6px; }
+.buy{
+  margin-top:10px;
+  padding-top:6px;
+  text-align:center;
+}
+.buy .btn{
+  margin: 16px auto 0;
+}
 
 /* ------------------------- */
 /* PROVA SOCIAL */
@@ -324,6 +304,8 @@ ul{ margin:0; padding:0; list-style:none; }
 /* ------------------------- */
 /* FAQ */
 /* ------------------------- */
+.faq-baloes .h2{ text-align:center; }
+
 .faq-baloes-list{
   display:flex;
   flex-direction:column;
@@ -441,44 +423,4 @@ ul{ margin:0; padding:0; list-style:none; }
   .h1{ font-size:34px; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
-}
-/* ===== CENTRALIZA HERO ===== */
-#topo .container{
-  text-align: center;
-}
-
-#topo .sub{
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#topo .btn{
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-flex;
-}
-
-/* ===== CENTRALIZA BLOCO COMPRAR ===== */
-.buy{
-  text-align: center;
-}
-
-.buy .btn{
-  margin: 16px auto 0;
-  display: inline-flex;
-}
-
-/* ===== CENTRALIZA BENEFÍCIOS ===== */
-.grid .card{
-  text-align: center;
-}
-
-/* ===== CENTRALIZA PROVA SOCIAL ===== */
-.card.center{
-  text-align: center;
-}
-
-/* ===== CENTRALIZA FAQ TÍTULO ===== */
-.faq-baloes .h2{
-  text-align: center;
 }
