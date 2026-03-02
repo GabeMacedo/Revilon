@@ -501,3 +501,22 @@ ul{ margin:0; padding:0; list-style:none; }
   64.01%, 80% { transform: translateX(-400%); }
   80.01%, 100%{ transform: translateX(-500%); }
 }
+/* ===== FORÇA slider automático ===== */
+#galeria .slider-track{
+  display:flex !important;
+  width: 600% !important;
+  animation: relivonSlide 36s linear infinite !important;
+}
+
+#galeria .product-slide{
+  flex: 0 0 100% !important;
+}
+
+@keyframes relivonSlide{
+  0%, 16% { transform: translateX(0%); }
+  16.01%, 32% { transform: translateX(-100%); }
+  32.01%, 48% { transform: translateX(-200%); }
+  48.01%, 64% { transform: translateX(-300%); }
+  64.01%, 80% { transform: translateX(-400%); }
+  80.01%, 100%{ transform: translateX(-500%); }
+}
