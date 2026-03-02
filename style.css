@@ -442,3 +442,43 @@ ul{ margin:0; padding:0; list-style:none; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
 }
+/* ===== CENTRALIZA HERO ===== */
+#topo .container{
+  text-align: center;
+}
+
+#topo .sub{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#topo .btn{
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
+}
+
+/* ===== CENTRALIZA BLOCO COMPRAR ===== */
+.buy{
+  text-align: center;
+}
+
+.buy .btn{
+  margin: 16px auto 0;
+  display: inline-flex;
+}
+
+/* ===== CENTRALIZA BENEFÍCIOS ===== */
+.grid .card{
+  text-align: center;
+}
+
+/* ===== CENTRALIZA PROVA SOCIAL ===== */
+.card.center{
+  text-align: center;
+}
+
+/* ===== CENTRALIZA FAQ TÍTULO ===== */
+.faq-baloes .h2{
+  text-align: center;
+}
