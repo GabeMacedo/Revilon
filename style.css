@@ -261,8 +261,8 @@ ul{ margin:0; padding:0; list-style:none; }
 /* Imagem (produto inteiro) */
 .pslider__slide img{
   width: 100%;
-  height: 320px; /* mobile */
-  object-fit: contain;
+  height: 100%; /* mobile */
+  object-fit: cover;
   background: #0f1113;
   padding: 16px;
   border-radius: 18px;
