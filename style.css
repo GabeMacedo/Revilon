@@ -447,3 +447,56 @@ ul{ margin:0; padding:0; list-style:none; }
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,.08);
 }
+/* ===== FIX IMEDIATO: slider não aparece (altura e layout garantidos) ===== */
+#galeria.product-slider{
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.25);
+}
+
+/* track sempre visível */
+#galeria .slider-track{
+  display: flex !important;
+  width: 600% !important;                  /* 6 imagens */
+  will-change: transform;
+  animation: relivonSlide 36s linear infinite !important; /* mais lento */
+}
+
+/* cada slide ocupa 100% */
+#galeria .product-slide{
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* imagem com altura FORÇADA (isso evita o retângulo vazio) */
+#galeria .product-slide img{
+  width: 100% !important;
+  height: 320px !important;     /* mobile */
+  object-fit: contain !important; /* mostra o produto inteiro */
+  background: #0f1113;
+  padding: 16px;
+  display: block !important;
+}
+
+/* desktop maior */
+@media (min-width: 760px){
+  #galeria .product-slide img{
+    height: 520px !important;
+    padding: 22px;
+  }
+}
+
+/* animação 6 imagens */
+@keyframes relivonSlide{
+  0%, 16% { transform: translateX(0%); }
+  16.01%, 32% { transform: translateX(-100%); }
+  32.01%, 48% { transform: translateX(-200%); }
+  48.01%, 64% { transform: translateX(-300%); }
+  64.01%, 80% { transform: translateX(-400%); }
+  80.01%, 100%{ transform: translateX(-500%); }
+}
