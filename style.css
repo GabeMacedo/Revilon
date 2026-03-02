@@ -546,3 +546,31 @@ ul{ margin:0; padding:0; list-style:none; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
 }
+/* ===== FIX: preencher o quadrado inteiro (SEM bordas) ===== */
+
+/* Quadrado principal */
+.pslider__viewport{
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* Remove “respiro” e força preencher */
+.pslider__slide img{
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;          /* tira o espaço */
+  object-fit: cover !important;    /* PREENCHE o quadrado */
+  border-radius: 18px !important;
+}
+
+/* Miniaturas (6 de baixo) */
+.pslider__thumb{
+  aspect-ratio: 1 / 1 !important;
+  overflow: hidden !important;
+}
+
+.pslider__thumb img{
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;          /* tira o espaço */
+  object-fit: cover !important;    /* PREENCHE o quadrado */
+}
