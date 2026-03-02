@@ -1,9 +1,9 @@
 /* =========================================================
-   Relivon™ — style.css (COMPLETO + SLIDER PREMIUM)
+   Relivon™ — style.css (ATUALIZADO + SEM CONFLITOS)
    - Tema premium escuro
-   - Tipografia e cards
    - Slider Premium (.pslider): fade + setas + dots + contador + thumbs
-   - Centralização de textos e botões
+   - Imagem grande e thumbs: QUADRADO e SEM CORTAR (contain)
+   - Tudo centralizado (textos + botões)
    ========================================================= */
 
 /* ------------------------- */
@@ -93,7 +93,7 @@ ul{ margin:0; padding:0; list-style:none; }
 }
 
 /* ------------------------- */
-/* HERO */
+/* HERO (CENTRALIZADO) */
 /* ------------------------- */
 #topo .container{ text-align:center; }
 
@@ -130,7 +130,7 @@ ul{ margin:0; padding:0; list-style:none; }
 }
 
 /* ------------------------- */
-/* BOTÕES */
+/* BOTÕES (CENTRALIZADO) */
 /* ------------------------- */
 .btn{
   display:inline-flex;
@@ -163,7 +163,6 @@ ul{ margin:0; padding:0; list-style:none; }
   padding:18px;
   overflow:hidden;
 }
-
 .card.center{ text-align:center }
 
 .h2{ margin:0; font-size:22px; letter-spacing:-.3px; }
@@ -213,10 +212,10 @@ ul{ margin:0; padding:0; list-style:none; }
 }
 
 /* =========================================================
-   SLIDER PREMIUM (pslider)
-   - Foco: look premium + produto inteiro (contain)
-   - Transições e controles (setas/dots/thumbs)
-   - JS vai trocar .is-active
+   SLIDER PREMIUM (pslider) — SEM CORTAR
+   ✅ Quadrado perfeito: viewport + thumbs (aspect-ratio)
+   ✅ Produto inteiro: object-fit: contain
+   ✅ Sem height fixo (não quebra)
    ========================================================= */
 
 .pslider{
@@ -225,6 +224,7 @@ ul{ margin:0; padding:0; list-style:none; }
   max-width: 860px;
 }
 
+/* viewport quadrado */
 .pslider__viewport{
   position: relative;
   border-radius: 20px;
@@ -232,20 +232,25 @@ ul{ margin:0; padding:0; list-style:none; }
   background: rgba(0,0,0,.25);
   box-shadow: var(--shadow2);
   overflow: hidden;
+  aspect-ratio: 1 / 1;
 }
 
-/* Track existe, mas o fade é controlado pelos slides */
+/* garante que o viewport tenha “altura” mesmo antes das imagens */
 .pslider__track{
   position: relative;
-  min-height: 340px; /* garante altura no carregamento */
+  width: 100%;
+  height: 100%;
+  min-height: 0; /* sem conflito */
 }
 
-/* Slides (fade) */
+/* slides (fade) */
 .pslider__slide{
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0f14;
   opacity: 0;
   transform: scale(1.02);
   transition: opacity 420ms ease, transform 520ms ease;
@@ -258,36 +263,17 @@ ul{ margin:0; padding:0; list-style:none; }
   pointer-events: auto;
 }
 
-/* Imagem (produto inteiro) */
-.pslider__viewport{
-  aspect-ratio: 1 / 1; /* quadrado perfeito */
-}
-
-.pslider__slide{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #0b0f14; /* fundo premium */
-}
-
+/* imagem grande: preenche o QUADRADO sem cortar */
 .pslider__slide img{
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* NÃO corta */
-  padding: 20px;         /* respira */
+  object-fit: contain;                 /* NÃO corta */
+  padding: clamp(12px, 3vw, 22px);     /* preenche “bonito” */
   background: transparent;
+  border-radius: 18px;
 }
 
-/* Desktop */
-@media (min-width: 760px){
-  .pslider__track{ min-height: 560px; }
-  .pslider__slide img{
-    height: 520px;
-    padding: 22px;
-  }
-}
-
-/* Setas (glass) */
+/* Setas */
 .pslider__nav{
   position: absolute;
   top: 50%;
@@ -308,14 +294,12 @@ ul{ margin:0; padding:0; list-style:none; }
   transition: transform .12s ease, filter .12s ease, opacity .2s ease;
   opacity: .96;
 }
-
 .pslider__nav:hover{ filter: brightness(1.08); }
 .pslider__nav:active{ transform: translateY(-50%) scale(.98); }
 
 .pslider__nav--prev{ left: 10px; }
 .pslider__nav--next{ right: 10px; }
 
-/* Mobile: setas menores */
 @media (max-width: 480px){
   .pslider__nav{
     width: 42px;
@@ -324,7 +308,7 @@ ul{ margin:0; padding:0; list-style:none; }
   }
 }
 
-/* Meta (dots + contador) */
+/* Dots + contador */
 .pslider__meta{
   display: flex;
   align-items: center;
@@ -342,7 +326,6 @@ ul{ margin:0; padding:0; list-style:none; }
   border-radius: 999px;
 }
 
-/* Dots */
 .pslider__dots{
   display: flex;
   align-items: center;
@@ -366,7 +349,7 @@ ul{ margin:0; padding:0; list-style:none; }
   border-color: rgba(46,139,87,.95);
 }
 
-/* Thumbnails */
+/* Thumbnails (sempre quadrado e sem cortar) */
 .pslider__thumbs{
   margin-top: 12px;
   display: grid;
@@ -375,29 +358,28 @@ ul{ margin:0; padding:0; list-style:none; }
 }
 
 .pslider__thumb{
+  aspect-ratio: 1 / 1;
   border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
+  background: #0b0f14;
   border-radius: 14px;
   overflow: hidden;
   padding: 0;
   cursor: pointer;
-  transition: transform .12s ease, border-color .18s ease, filter .18s ease;
-}
-
-.pslider__thumb{
-  aspect-ratio: 1 / 1; /* deixa quadrado */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0b0f14;
+  transition: transform .12s ease, border-color .18s ease, filter .18s ease;
 }
 
 .pslider__thumb img{
   width: 100%;
   height: 100%;
-  object-fit: contain; /* mostra inteiro */
-  padding: 10px;
+  object-fit: contain;               /* NÃO corta */
+  padding: clamp(6px, 2vw, 10px);
+  background: transparent;
+  display: block;
 }
+
 .pslider__thumb.is-active{
   border-color: rgba(46,139,87,.75);
   filter: brightness(1.05);
@@ -407,23 +389,18 @@ ul{ margin:0; padding:0; list-style:none; }
 
 /* Responsivo thumbs */
 @media (max-width: 760px){
-  .pslider__thumbs{
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .pslider__thumb img{ height: 72px; }
+  .pslider__thumbs{ grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ------------------------- */
-/* BUY */
+/* BUY (centralizado) */
 /* ------------------------- */
 .buy{
   margin-top: 12px;
   padding-top: 6px;
   text-align: center;
 }
-.buy .btn{
-  margin: 16px auto 0;
-}
+.buy .btn{ margin: 16px auto 0; }
 
 /* ------------------------- */
 /* PROVA SOCIAL */
@@ -568,51 +545,4 @@ ul{ margin:0; padding:0; list-style:none; }
   .h1{ font-size:34px; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
-}
-/* =========================
-   FIX FORÇA TOTAL — SLIDER QUADRADO (SEM CORTAR)
-   Cole no FINAL do style.css
-========================= */
-
-.pslider__viewport{
-  aspect-ratio: 1 / 1 !important;   /* quadrado perfeito */
-}
-
-.pslider__track{
-  min-height: 0 !important;
-}
-
-.pslider__slide{
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: #0b0f14 !important;
-}
-
-.pslider__slide img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;   /* NÃO corta */
-  padding: 18px !important;         /* preenche “bonito” */
-  border-radius: 18px !important;
-  background: transparent !important;
-}
-
-/* MINIATURAS QUADRADAS (6 de baixo) */
-.pslider__thumb{
-  aspect-ratio: 1 / 1 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: #0b0f14 !important;
-  overflow: hidden !important;
-}
-
-.pslider__thumb img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;   /* NÃO corta */
-  padding: 10px !important;
-  background: transparent !important;
-  display: block !important;
 }
