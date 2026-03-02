@@ -569,3 +569,50 @@ ul{ margin:0; padding:0; list-style:none; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
 }
+/* =========================
+   FIX FORÇA TOTAL — SLIDER QUADRADO (SEM CORTAR)
+   Cole no FINAL do style.css
+========================= */
+
+.pslider__viewport{
+  aspect-ratio: 1 / 1 !important;   /* quadrado perfeito */
+}
+
+.pslider__track{
+  min-height: 0 !important;
+}
+
+.pslider__slide{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0b0f14 !important;
+}
+
+.pslider__slide img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;   /* NÃO corta */
+  padding: 18px !important;         /* preenche “bonito” */
+  border-radius: 18px !important;
+  background: transparent !important;
+}
+
+/* MINIATURAS QUADRADAS (6 de baixo) */
+.pslider__thumb{
+  aspect-ratio: 1 / 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0b0f14 !important;
+  overflow: hidden !important;
+}
+
+.pslider__thumb img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;   /* NÃO corta */
+  padding: 10px !important;
+  background: transparent !important;
+  display: block !important;
+}
