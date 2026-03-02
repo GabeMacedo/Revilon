@@ -1,9 +1,11 @@
 /* =========================================================
-   Relivon™ — style.css (MELHORADO E COMPLETO)
-   - Premium escuro, consistente
-   - Slider com FALLBACK:
+   Relivon™ — style.css (FINAL ORGANIZADO)
+   - Premium escuro
+   - Slider:
        • com .slider-track = automático (animação)
        • sem .slider-track = scroll no dedo
+   - Produto aparece INTEIRO (contain)
+   - Tamanho bom no PC e no mobile
    ========================================================= */
 
 /* ------------------------- */
@@ -45,7 +47,7 @@ body{
   color:var(--text);
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
-  padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)); /* CTA fixo */
+  padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
 }
 
 a{ color:inherit; text-decoration:none }
@@ -56,13 +58,12 @@ img{ max-width:100%; height:auto; display:block; }
 ul{ margin:0; padding:0; list-style:none; }
 
 ::selection{ background: rgba(46,139,87,.35); }
+*{ -webkit-tap-highlight-color: transparent; }
 
 :focus-visible{
   outline: 2px solid rgba(46,139,87,.9);
   outline-offset: 3px;
 }
-
-*{ -webkit-tap-highlight-color: transparent; }
 
 /* ------------------------- */
 /* BANNER */
@@ -79,8 +80,6 @@ ul{ margin:0; padding:0; list-style:none; }
   display:block;
   object-fit:cover;
 }
-
-/* mini bar */
 .banner-mini{
   margin:12px auto 0;
   max-width:var(--max);
@@ -160,16 +159,8 @@ ul{ margin:0; padding:0; list-style:none; }
 }
 .card.center{ text-align:center }
 
-.h2{
-  margin:0;
-  font-size:22px;
-  letter-spacing:-.3px;
-}
-.h3{
-  margin:0 0 8px;
-  font-size:20px;
-  letter-spacing:-.2px;
-}
+.h2{ margin:0; font-size:22px; letter-spacing:-.3px; }
+.h3{ margin:0 0 8px; font-size:20px; letter-spacing:-.2px; }
 .p{
   margin:8px 0 0;
   color: var(--muted);
@@ -187,35 +178,33 @@ ul{ margin:0; padding:0; list-style:none; }
     radial-gradient(900px 520px at 85% 10%, rgba(15,42,71,.22), transparent 55%),
     rgba(255,255,255,.04);
 }
+.bullets{ margin:10px 0 0; }
+.bullets li{
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  color: rgba(255,255,255,.82);
+}
 #garantia .bullets li{
   padding:10px 12px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background: rgba(0,0,0,.18);
+  border-bottom:none;
+  margin-top:8px;
 }
+.bullets li:last-child{ border-bottom:none }
 
 /* ------------------------- */
-/* GRID BENEFÍCIOS */
+/* GRID */
 /* ------------------------- */
 .grid{
   display:grid;
   grid-template-columns:1fr;
   gap:14px;
 }
-.bullets{
-  margin:10px 0 0;
-}
-.bullets li{
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  color: rgba(255,255,255,.82);
-}
-.bullets li:last-child{ border-bottom:none }
 
 /* ------------------------- */
-/* SLIDER DO PRODUTO (FALLBACK INTELIGENTE) */
-/* 1) Se existir .slider-track dentro -> anima automático
-   2) Se NÃO existir -> vira scroll no dedo
+/* SLIDER DO PRODUTO */
 /* ------------------------- */
 .product-slider{
   position: relative;
@@ -226,12 +215,13 @@ ul{ margin:0; padding:0; list-style:none; }
   overflow: hidden;
 }
 
-/* ===== MODO 1: Automático (precisa .slider-track no HTML) ===== */
+/* automático: precisa .slider-track */
 .product-slider .slider-track{
   display:flex;
-  width: 600%;              /* 6 imagens */
-  animation: relivonSlide 18s infinite;
+  width: 600%;                 /* 6 imagens */
+  animation: relivonSlide 36s infinite; /* MAIS LENTO */
   will-change: transform;
+  animation-timing-function: linear;
 }
 
 .product-slider .slider-track .product-slide{
@@ -239,10 +229,10 @@ ul{ margin:0; padding:0; list-style:none; }
   flex: 0 0 100%;
 }
 
-/* ===== MODO 2: Sem .slider-track -> scroll no dedo ===== */
+/* fallback scroll (quando NÃO existe slider-track) */
 .product-slider:not(:has(.slider-track)){
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
   display:flex;
   gap:12px;
   padding: 10px;
@@ -257,7 +247,7 @@ ul{ margin:0; padding:0; list-style:none; }
   scroll-snap-align:center;
 }
 
-/* Slides e imagens */
+/* slide e imagem (produto INTEIRO e tamanho balanceado) */
 .product-slide{
   display:flex;
   align-items:center;
@@ -267,30 +257,34 @@ ul{ margin:0; padding:0; list-style:none; }
   background: rgba(255,255,255,.02);
   overflow:hidden;
 }
+
+/* ✅ Aqui é onde resolve seu problema (muito grande no mobile / pequeno no pc) */
 .product-slide img{
   width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  object-fit: contain;
+  height: clamp(260px, 60vw, 520px); /* mobile menor / desktop maior */
+  object-fit: contain;               /* produto inteiro */
+  background: #0f1113;               /* fundo escuro */
+  padding: clamp(10px, 3vw, 22px);   /* respira sem ficar gigante */
   border-radius: 18px;
 }
 
-/* Keyframes do automático (6 imagens) */
+/* keyframes (6 imagens) */
 @keyframes relivonSlide{
-  0%, 12%   { transform: translateX(0%); }
-  18%, 30%  { transform: translateX(-100%); }
-  36%, 48%  { transform: translateX(-200%); }
-  54%, 66%  { transform: translateX(-300%); }
-  72%, 84%  { transform: translateX(-400%); }
-  90%, 100% { transform: translateX(-500%); }
+  0%, 16%   { transform: translateX(0%); }
+  16.01%, 32%  { transform: translateX(-100%); }
+  32.01%, 48%  { transform: translateX(-200%); }
+  48.01%, 64%  { transform: translateX(-300%); }
+  64.01%, 80%  { transform: translateX(-400%); }
+  80.01%, 100% { transform: translateX(-500%); }
 }
 
-/* Respeita quem prefere menos animação */
 @media (prefers-reduced-motion: reduce){
   .product-slider .slider-track{ animation: none; }
 }
 
-/* BUY bloco */
+/* ------------------------- */
+/* BUY */
+/* ------------------------- */
 .buy{ margin-top:10px; padding-top:6px; }
 
 /* ------------------------- */
@@ -357,7 +351,7 @@ ul{ margin:0; padding:0; list-style:none; }
 }
 
 /* ------------------------- */
-/* CTA STICKY (mobile) */
+/* CTA STICKY */
 /* ------------------------- */
 .sticky-cta{
   position:fixed;
@@ -375,8 +369,6 @@ ul{ margin:0; padding:0; list-style:none; }
   width:100%;
   border-radius:18px;
 }
-
-/* Se seu JS adicionar .is-visible (recomendado) */
 .sticky-cta[aria-hidden="true"]{
   opacity: 0;
   transform: translateY(12px);
@@ -392,10 +384,7 @@ ul{ margin:0; padding:0; list-style:none; }
   padding:50px 0 25px;
   margin-top:40px;
 }
-.footer-grid{
-  display:grid;
-  gap:40px;
-}
+.footer-grid{ display:grid; gap:40px; }
 .footer-title{
   font-size:20px;
   margin-bottom:15px;
@@ -406,11 +395,7 @@ ul{ margin:0; padding:0; list-style:none; }
   color: rgba(255,255,255,.65);
   max-width:320px;
 }
-.footer a{
-  color: rgba(255,255,255,.65);
-  text-decoration:none;
-  transition:.2s;
-}
+.footer a{ color: rgba(255,255,255,.65); transition:.2s; }
 .footer a:hover{ color: var(--green); }
 .footer-bottom{
   margin-top:40px;
@@ -435,45 +420,4 @@ ul{ margin:0; padding:0; list-style:none; }
   .h1{ font-size:34px; }
   .btn{ min-height:50px; }
   .banner-mini{ border-radius:16px; }
-}
-/* ===== PATCH: tamanho correto do slider no PC e no mobile ===== */
-
-/* base: controla altura do bloco de imagem */
-.product-slide img{
-  width: 100%;
-  height: clamp(320px, 48vw, 520px); /* mobile -> médio -> desktop */
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-/* desktop: deixa o slider mais “alto” e com cara premium */
-@media (min-width: 760px){
-  .product-slider{
-    max-width: 860px;     /* controla largura pra não ficar estreito */
-    margin: 14px auto 18px;
-  }
-
-  .product-slide img{
-    height: 520px;        /* tamanho bom no PC */
-  }
-}
-
-/* mobile: impede ficar enorme */
-@media (max-width: 480px){
-  .product-slide img{
-    height: 320px;        /* tamanho bom no celular */
-  }
-}
-/* Mostrar produto inteiro sem cortar */
-.product-slide img{
-  width: 100% !important;
-  height: 380px !important;   /* controla o tamanho */
-  object-fit: contain !important;
-  background: #0f1113;        /* fundo escuro atrás da imagem */
-  padding: 20px;              /* espaço interno para respirar */
-  border-radius: 18px;
-}
-/* Slider mais lento */
-.product-slider .slider-track{
-  animation-duration: 36s !important; /* era 18s */
 }
